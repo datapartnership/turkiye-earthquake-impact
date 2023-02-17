@@ -14,15 +14,17 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 
 The Türkiye Country Management Unit has requested advisory on data and analytical resources that may support measurement and monitoring of socio-economic impacts, including population displacement and business impacts.
 
-## Recommendations
 
-The **Data Lab** recommendations are presented in three sections:
+
+The **Data Lab** advisory is presented in three sections:
 
 - **Data Collection and Acquisition**: Identified data resources that could support the earthquake socio-economic impact analysis.
 
 - **Data Management**: Recommendations for managing derived project datasets.
 
 - **Data Analytics and Insight Dissemination**: A menu of proposals for analytical work that could be coordinated through the Lab.
+  
+  
 
 ## Data Collection and Acquisition
 
