@@ -5,7 +5,7 @@ copyright: 2023
 logo: docs/images/logo.png
 
 repository:
-    url: https://github.com/worldbank/template
+    url: https://github.com/datapartnership/turkiye-rapid-damage-and-needs-assessment
     branch: main
 
 html:
@@ -14,6 +14,6 @@ html:
     use_edit_page_button: true
     use_repository_button: true
     use_issues_button: true
-    baseurl: https://worldbank.github.io/template
+    baseurl: https://datapartnership.github.io/turkiye-rapid-damage-and-needs-assessment
 
 only_build_toc_files: true

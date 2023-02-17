@@ -4,4 +4,4 @@ root: README
 parts:
   - caption: Strategic Brief
     chapters:
-      - file: reports/2023-02-turkiye-earthquake-strategic-brief.md
+      - file: reports/turkiye-earthquake-strategic-brief.md
