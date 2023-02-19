@@ -1,4 +1,4 @@
-# Data Lab Strategic Brief
+# Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring
 
 A **Strategic Brief** is a high-level set of recommendations prepared by the [Data Lab](https://wbdatalab.org) that address a given challenge. Recommendations may include internal and external data resources, specific colleagues and/or teams with relevant expertise, data management best practices, suggestions for exploration, and/or a list of relevant resources and
 similar projects.
