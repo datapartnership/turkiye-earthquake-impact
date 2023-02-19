@@ -252,6 +252,6 @@ practitioners and maintains a robust data documentation and code collaboration
 platform based on GitHub, which is recognized as a good practice in the World
 Bank and in partner international organizations. See more at [https://docs.datapartnership.org](https://docs.datapartnership.org).
 
-### Additional Information and Datasets
+### UN Charter Activated Satellite Imagery
 
-Following are additional datasets that may be of use to the CMU team: [Earthquake related data sources.docx](https://worldbankgroup.sharepoint.com/:w:/t/DevelopmentDataPartnershipCommunity-WBGroup/EbsPDeosz4xLlpAuWCZ-QnEB088eENs8dFw6OYpn_cnogw?e=9hmykY)
+Following are additional geospatal datasets that may be of use to the CMU team: [Earthquake related data sources.docx](https://worldbankgroup.sharepoint.com/:w:/t/DevelopmentDataPartnershipCommunity-WBGroup/EbsPDeosz4xLlpAuWCZ-QnEB088eENs8dFw6OYpn_cnogw?e=9hmykY)
