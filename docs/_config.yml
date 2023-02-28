@@ -14,6 +14,6 @@ html:
     use_edit_page_button: true
     use_repository_button: true
     use_issues_button: true
-    baseurl: https://datapartnership.github.io/turkiye-rapid-damage-and-needs-assessment
+    baseurl: https://datapartnership.github.io/turkiye-earthquake-impact
 
 only_build_toc_files: true
