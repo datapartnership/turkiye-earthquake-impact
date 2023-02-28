@@ -5,7 +5,7 @@ copyright: 2023
 logo: docs/images/logo.png
 
 repository:
-    url: https://github.com/datapartnership/turkiye-rapid-damage-and-needs-assessment
+    url: https://github.com/datapartnership/turkiye-earthquake-impact
     branch: main
 
 html:
