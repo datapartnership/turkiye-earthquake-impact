@@ -1,8 +1,9 @@
 # Book settings
 title:
 author: World Bank Development Data Group
-copyright: 2023
+copyright: "2023"
 logo: docs/images/logo.png
+only_build_toc_files: true
 
 repository:
     url: https://github.com/datapartnership/turkiye-earthquake-impact
@@ -16,4 +17,14 @@ html:
     use_issues_button: true
     baseurl: https://datapartnership.github.io/turkiye-earthquake-impact
 
-only_build_toc_files: true
+# Execution settings
+execute:
+    execute_notebooks: force
+    allow_errors: true
+    exclude_patterns:
+        - notebooks/*.ipynb
+
+sphinx:
+    config:
+        html_show_copyright: false
+        html_last_updated_fmt: "%b %d, %Y"
