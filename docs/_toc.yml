@@ -5,3 +5,6 @@ parts:
   - caption: Strategic Brief
     chapters:
       - file: reports/turkiye-earthquake-strategic-brief.md
+  - caption: Data Products
+    chapters:
+      - file: notebooks/mobility/README
