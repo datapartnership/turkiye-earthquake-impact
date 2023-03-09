@@ -1,5 +1,13 @@
 # Aggregate Nighttime Lights
 
+# Do if make changes to how data processed and need to start from scratch
+DELETE_DIR <- F 
+
+if(DELETE_DIR){
+  unlink(file.path(ntl_bm_dir, "FinalData", "aggregated"), recursive = T)
+  dir.create(file.path(ntl_bm_dir, "FinalData", "aggregated"))
+}
+
 # Load/prep gas flaring boundaries data ----------------------------------------
 # Make spatial file for:
 # 1. Locations with gas flaring
@@ -76,6 +84,24 @@ for(roi in c("tessellation", "adm0", "adm1", "adm2")){
         roi_sf$ntl_bm_mean       <- exact_extract(r,      roi_sf, fun = "mean")
         roi_sf$ntl_bm_gf_mean    <- exact_extract(r_gf,   roi_sf, fun = "mean")
         roi_sf$ntl_bm_no_gf_mean <- exact_extract(r_nogf, roi_sf, fun = "mean")
+        
+        roi_sf$ntl_bm_median       <- exact_extract(r,      roi_sf, fun = "median")
+        roi_sf$ntl_bm_gf_median    <- exact_extract(r_gf,   roi_sf, fun = "median")
+        roi_sf$ntl_bm_no_gf_median <- exact_extract(r_nogf, roi_sf, fun = "median")
+        
+        for(thresh in c(2, 5, 10)){
+          
+          r_t <- r
+          r_t[] <- as.numeric(r[] > thresh)
+          
+          r_t_gf   <- r_t %>% crop(gf_sp)         %>% mask(gf_sp)
+          r_t_nogf <- r_t %>% crop(adm0_no_gf_sp) %>% mask(adm0_no_gf_sp)
+          
+          roi_sf[[paste0("ntl_bm_prop_g", thresh)]]       <- exact_extract(r_t,      roi_sf, fun = "mean")
+          roi_sf[[paste0("ntl_bm_gf_prop_g", thresh)]]    <- exact_extract(r_t_gf,   roi_sf, fun = "mean")
+          roi_sf[[paste0("ntl_bm_no_gf_prop_g", thresh)]] <- exact_extract(r_t_nogf, roi_sf, fun = "mean")
+          
+        }
         
         ## Prep for export
         roi_df <- roi_sf

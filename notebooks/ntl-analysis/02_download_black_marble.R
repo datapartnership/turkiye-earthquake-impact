@@ -79,7 +79,7 @@ for(month_ymd in months){
 # * Both VNP46A1 and VNP46A2 are daily data. VNP46A2 has more corrections, but
 #   VNP46A1 has more recent data. We download both.
 
-dates <- seq.Date(from = ymd("2022-01-31"),
+dates <- seq.Date(from = ymd("2023-01-01"),
                   to = Sys.Date(),
                   by = "day") %>%
   as.character() %>%

@@ -37,6 +37,9 @@ library(exactextractr)
 library(stringr)
 library(ggplot2)
 library(purrr)
+library(tidyverse)
+library(leaflet)
+library(ggpubr)
 
 # Functions --------------------------------------------------------------------
 pad3 <- function(x){
@@ -47,6 +50,13 @@ pad3 <- function(x){
 }
 pad3 <- Vectorize(pad3)
 
+pad2 <- function(x){
+  if(nchar(x) == 1) out <- paste0("0", x)
+  if(nchar(x) == 2) out <- paste0(x)
+  return(out)
+}
+pad2 <- Vectorize(pad2)
+
 # Scripts ----------------------------------------------------------------------
 if(F){
   
@@ -55,6 +65,7 @@ if(F){
   source(file.path(ntl_gir_dir, "01_clean_gas_flaring_data.R"))
   source(file.path(ntl_gir_dir, "02_download_black_marble.R"))
   source(file.path(ntl_gir_dir, "03_aggregate.R"))
+  source(file.path(ntl_gir_dir, "04_append.R"))
   
 }
 

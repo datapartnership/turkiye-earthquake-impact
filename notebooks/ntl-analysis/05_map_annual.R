@@ -1,8 +1,37 @@
-# Annual NTL Map
+# ADM2 Map
 
-# Load ADM0 --------------------------------------------------------------------
-adm0_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbnda_adm0.shp")) %>% 
-  st_as_sf()
+# Load data --------------------------------------------------------------------
+adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>% st_as_sf()
+ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
+eq_df  <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max.csv"))
+
+# Categorize ADMs --------------------------------------------------------------
+ntl_sum_df <- ntl_df %>%
+  dplyr::mutate(period = case_when(
+    date %in% ymd("2022-01-23"):ymd("2022-02-05") ~ "wk2_before",
+    date %in% ymd("2022-02-07"):ymd("2022-02-20") ~ "wk2_after"
+  )) %>%
+  dplyr::filter(!is.na(period)) %>%
+  group_by(pcode, period) %>%
+  dplyr::summarise(ntl_bm_mean = mean(ntl_bm_mean)) %>%
+  pivot_wider(id_cols = pcode, names_from = period, values_from = ntl_bm_mean) %>%
+  mutate(pchange = (wk2_after - wk2_before) / wk2_before) %>%
+  left_join(eq_df, by = "pcode") %>%
+  mutate(mak=pmax(Sepal.Width,Petal.Length, Petal.Width))
+
+# Map --------------------------------------------------------------------------
+adm2_sf <- adm2_sf %>%
+  left_join(ntl_sum_df, by = "pcode")
+
+ggplot() +
+  geom_sf(data = adm2_sf,
+          aes(fill = pchange))
+
+
+
+
+
+
 
 # Annual map -------------------------------------------------------------------
 year_i <- 2021
