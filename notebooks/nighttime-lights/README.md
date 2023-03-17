@@ -14,15 +14,15 @@ We extract average nighttime lights within each administrative unit in Turkiye. 
 
 ## Implementation
 
-Code to replicate the analysis can be found [here](URL).
+Code to replicate the analysis can be found [here](https://github.com/datapartnership/turkiye-earthquake-impact/tree/ntl/notebooks/nighttime-lights).
 
-The main script ([_main.R](https://github.com/datapartnership/syria-economic-monitor/tree/main/notebooks/ntl-analysis/_main.R)) loads all packages and runs all scripts for the analysis. There are separate scripts for processing the data (e.g., [downloading and cleaning Black Marble data](https://github.com/datapartnership/syria-economic-monitor/tree/main/notebooks/ntl-analysis/01_download_black_marble.R)). The scripts download rasters of nighttime lights, then create datasets of average nighttime lights within different units (e.g., administrative level 2 dataset). The following code generates figures and analysis of the data:
+The main script ([_main.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R)) loads all packages and runs all scripts for the analysis. There are separate scripts for processing the data (e.g., [downloading and cleaning Black Marble data](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R)). The scripts download rasters of nighttime lights, then create datasets of average nighttime lights within different units (e.g., administrative level 2 dataset). The following code generates figures and analysis of the data:
 
-* [05_map_ntl_annual.R](URL): Produce annual maps of nighttime lights
-* [05_maps_ntl_changes.R](URL): Produce maps of changes in nighttime lights from before and after the earthquake.
-* [05_ntl_trends_daily.R](URL): Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.
-* [05_ntl_trends_monthly.R](URL): Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.
-* [05_avg_ntl_by_period.R](URL): Create a dataset of average nighttime lights for each administrative unit for different time periods.
+* [05_map_ntl_annual.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R): Produce annual maps of nighttime lights
+* [05_maps_ntl_changes.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R): Produce maps of changes in nighttime lights from before and after the earthquake.
+* [05_ntl_trends_daily.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_ntl_trends_daily.R): Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.
+* [05_ntl_trends_monthly.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_ntl_trends_monthly.R): Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.
+* [05_avg_ntl_by_period.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_avg_ntl_by_period.R): Create a dataset of average nighttime lights for each administrative unit for different time periods.
 
 The data for the analysis can be accessed from:
 
