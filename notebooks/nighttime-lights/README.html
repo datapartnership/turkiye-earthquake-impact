@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Estimating Population Displacement based on Mobility Traces</title>
+    <title>Nighttime Lights</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,11 +50,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://datapartnership.github.io/turkiye-earthquake-impact/notebooks/mobility/README.html" />
+    <link rel="canonical" href="https://datapartnership.github.io/turkiye-earthquake-impact/notebooks/nighttime-lights/README.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Nighttime Lights" href="../nighttime-lights/README.html" />
-    <link rel="prev" title="Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring" href="../../reports/turkiye-earthquake-strategic-brief.html" />
+    <link rel="prev" title="Estimating Population Displacement based on Mobility Traces" href="../mobility/README.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -122,13 +121,13 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mobility/README.html">
    Estimating Population Displacement based on Mobility Traces
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../nighttime-lights/README.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Nighttime Lights
   </a>
  </li>
@@ -218,7 +217,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/issues/new?title=Issue%20on%20page%20%2Fnotebooks/mobility/README.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/issues/new?title=Issue%20on%20page%20%2Fnotebooks/nighttime-lights/README.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -235,7 +234,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/edit/main/notebooks/mobility/README.md"
+        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/edit/main/notebooks/nighttime-lights/README.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -263,7 +262,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/notebooks/mobility/README.md"
+        <a href="../../_sources/notebooks/nighttime-lights/README.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -331,13 +330,26 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#methodology">
    Methodology
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#understanding-population-displacement-flows">
-     Understanding Population Displacement Flows
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation">
+   Implementation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#findings">
+   Findings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next Steps
+  </a>
  </li>
 </ul>
 
@@ -348,7 +360,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Estimating Population Displacement based on Mobility Traces</h1>
+                <h1>Nighttime Lights</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -367,13 +379,26 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#methodology">
    Methodology
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#understanding-population-displacement-flows">
-     Understanding Population Displacement Flows
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation">
+   Implementation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#findings">
+   Findings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next Steps
+  </a>
  </li>
 </ul>
 
@@ -385,23 +410,77 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="estimating-population-displacement-based-on-mobility-traces">
-<h1>Estimating Population Displacement based on Mobility Traces<a class="headerlink" href="#estimating-population-displacement-based-on-mobility-traces" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="nighttime-lights">
+<h1>Nighttime Lights<a class="headerlink" href="#nighttime-lights" title="Permalink to this headline">#</a></h1>
+<p>Nighttime lights have become a commonly used resource to estimate changes in local economic activity. This section shows changes in nighttime lights in Turkiye from before and after the earthquake.</p>
 <section id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
-<p>The WB Data Lab team obtained a high-frequency longitudinal panel of human mobility. The data consisted of anonymized timestamped geographical points generated by 1,482,694 GPS-enabled devices, located in Turkey and Syria and spanning the period of January 1, 2023, to February 23, 2023 (ongoing). The mobility data panel has been provided pro-bono by <a class="reference external" href="https://veraset.com">Veraset</a> through the proposal <a class="reference external" href="https://portal.datapartnership.org/readableproposal/427">Türkiye Rapid Damage Needs Assessment</a> of the <a class="reference external" href="https://datapartnership.org">Development Data Partnership</a>.</p>
-<p>During the project’s execution, <a class="reference external" href="https://www.veraset.com/products/movement/">Veraset Movement</a>’s global daily data feed was ingested and processed through the <a class="reference external" href="https://docs.datapartnership.org/collections/mobility/README.html">Mobility</a> pipeline maintained by the <a class="reference external" href="https://datapartnership.org/">Development Data Partnership</a>. As input, the mobility data has been acessed as an Apache Parquet dataset, partitioned on country, year, and date. For additional information, please refer to the <a class="reference external" href="https://docs.datapartnership.org/collections/mobility/README.html">Mobility Documentation</a> accessible to all World Bank staff.</p>
+<p>We use nighttime lights data from the VIIRS Black Marble dataset. Raw nighttime lights data requires correction due to cloud cover and stray light, such as lunar light. The Black Marble dataset applies advanced algorithms to correct raw nighttime light values and calibrate data so that trends in lights over time can be meaningfully analyzed. We use daily and monthly data from VIIRS Black Marble.</p>
 </section>
 <section id="methodology">
 <h2>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">#</a></h2>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>The following working methodologies are a work in progress and waiting peer-review.</p>
-</div>
-<section id="understanding-population-displacement-flows">
-<h3>Understanding Population Displacement Flows<a class="headerlink" href="#understanding-population-displacement-flows" title="Permalink to this headline">#</a></h3>
-<iframe width="100%" height="500px" src="https://studio.foursquare.com/public/55af1cba-9659-4f10-811b-f7f08dfe2ed8/embed" frameborder="0" allowfullscreen></iframe>
+<p>We extract average nighttime lights within each administrative unit in Turkiye. We distinguish lights between lights observed in gas flaring locations and lights in other locations. Oil extraction and production involves gas flaring, which produces significant volumes of light. Separately examining lights in gas flaring and other locations allows distinguishing between lights generated due to oil production versus other sources of human activity. We use data on the locations of gas flaring sites from the <a class="reference external" href="https://www.worldbank.org/en/programs/gasflaringreduction">Global Gas Flaring Reduction Partnership</a>; we remove lights within 5km of gas flaring sites.</p>
 </section>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
+<p>Code to replicate the analysis can be found <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/ntl/notebooks/nighttime-lights">here</a>.</p>
+<p>The main script (<a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R">_main.R</a>) loads all packages and runs all scripts for the analysis. There are separate scripts for processing the data (e.g., <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R">downloading and cleaning Black Marble data</a>). The scripts download rasters of nighttime lights, then create datasets of average nighttime lights within different units (e.g., administrative level 2 dataset). The following code generates figures and analysis of the data:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R">05_map_ntl_annual.R</a>: Produce annual maps of nighttime lights</p></li>
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R">05_maps_ntl_changes.R</a>: Produce maps of changes in nighttime lights from before and after the earthquake.</p></li>
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_ntl_trends_daily.R">05_ntl_trends_daily.R</a>: Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.</p></li>
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_ntl_trends_monthly.R">05_ntl_trends_monthly.R</a>: Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.</p></li>
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_avg_ntl_by_period.R">05_avg_ntl_by_period.R</a>: Create a dataset of average nighttime lights for each administrative unit for different time periods.</p></li>
+</ul>
+<p>The data for the analysis can be accessed from:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://datacatalog.worldbank.org/search/dataset/0037743">Gas Flaring Location Data</a></p></li>
+<li><p><strong>Black Marble Nighttime Lights:</strong> There are two options to access the data:</p>
+<ul>
+<li><p>The code <a class="reference external" href="https://github.com/datapartnership/syria-economic-monitor/blob/main/notebooks/ntl-analysis/01_download_black_marble.R">here</a> downloads raw data from the <a class="reference external" href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A3/">NASA archive</a> and processes the data for Turkiye—mosaicing raster tiles together to cover Turkiye. Running the code requires a NASA bearer token; the documentation <a class="reference external" href="https://github.com/ramarty/blackmarbler">here</a> describes how to obtain a token.</p></li>
+<li><p>Pre-processed data can be downloaded from <span class="xref myst">here</span>, using the <strong>Night Time Lights BlackMarble Data</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="findings">
+<h2>Findings<a class="headerlink" href="#findings" title="Permalink to this headline">#</a></h2>
+<p>The below figure shows nighttime lights from the latest year available. As expected, Turkiye’s largest cities are the most brightly lit – such as Instanbul in the north west.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/tur_ntl_bm_2021.png"><img alt="../../_images/tur_ntl_bm_2021.png" src="../../_images/tur_ntl_bm_2021.png" style="width: 750.0px; height: 450.0px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Nighttime lights in 2021</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The below figures show the change in nighttime lights from the two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figures show that many locations saw an increase in nighttime lights immediately after the earthquake. Increases in nighttime lights could result from lights generated from rescue efforts.</p>
+<figure class="align-center" id="id2">
+<img alt="../../_images/ntl_adm2_map_raw.png" src="../../_images/ntl_adm2_map_raw.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<img alt="../../_images/ntl_adm2_map_cat.png" src="../../_images/ntl_adm2_map_cat.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The below figure shows daily trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher). In most locations, nighttime lights remains relatively unchanged. However, Antakya—which had the largest nighttime lights—saw a sharp reduction in nighttime lights.</p>
+<figure class="align-center" id="id4">
+<img alt="../../_images/ntl_trends_daily_adm2_mi9.png" src="../../_images/ntl_trends_daily_adm2_mi9.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
+<p>Nighttime lights are a common data source for measuring local economic activity. However, it is a proxy that is strongly—although imperfectly—correlated with measures of interest, such as population, local GDP, and wealth. Consequently, care must be taken in interpreting reasons for changes in lights.</p>
+<p>Caution should also be taken when making conclusions of earthquake impacts based on nighttime lights. Changes in nighttime lights could be driven by multiple factors—such as rescue efforts generating lights, to damages and people leaving high-hit areas causing a reduction in nighttime lights.</p>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
+<p>Next steps can focus on continuing to monitor trends in nighttime lights over time. In particular, it will be useful to examine changes in nighttime lights in the weeks and months after the earthquake—when rescue efforts and the lights they generated are done. Consequently, any persistent changes in nighttime lights observed in the weeks and months after the earthquake would be indicative of damages or people moving away. Analysis of data from other sources could shed insight to whether any reductions in nighttime lights are due to damanges or people moving awawy.</p>
 </section>
 </section>
 
@@ -418,7 +497,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/mobility"
+            path: "./notebooks/nighttime-lights"
         },
         predefinedOutput: true
     }
@@ -432,19 +511,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../reports/turkiye-earthquake-strategic-brief.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../mobility/README.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring</p>
+            <p class="prev-next-title">Estimating Population Displacement based on Mobility Traces</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="../nighttime-lights/README.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Nighttime Lights</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
