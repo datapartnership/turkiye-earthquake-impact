@@ -8,3 +8,4 @@ parts:
   - caption: Data Products
     chapters:
       - file: notebooks/mobility/README
+      - file: notebooks/nighttime-lights/README
