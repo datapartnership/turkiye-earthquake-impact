@@ -5,7 +5,14 @@ parts:
   - caption: Strategic Brief
     chapters:
       - file: reports/turkiye-earthquake-strategic-brief.md
+  - caption: Introduction to Data Goods
+    chapters:
+      - file: docs/introduction_to_data_goods
   - caption: Data Products
     chapters:
       - file: notebooks/mobility/README
       - file: notebooks/nighttime-lights/README
+  - caption: Insights and Indicators
+  - caption: Acknowledgements
+    chapters:
+      - file: docs/team
