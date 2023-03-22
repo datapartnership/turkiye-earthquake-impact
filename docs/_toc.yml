@@ -12,7 +12,6 @@ parts:
     chapters:
       - file: notebooks/mobility/README
       - file: notebooks/nighttime-lights/README
-  - caption: Insights and Indicators
   - caption: Acknowledgements
     chapters:
       - file: docs/team
