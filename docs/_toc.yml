@@ -8,10 +8,14 @@ parts:
   - caption: Introduction to Data Goods
     chapters:
       - file: docs/introduction_to_data_goods
+  - caption: Foundational Datasets
+      - file: foundational_datasets_and_data_products
   - caption: Data Products
     chapters:
       - file: notebooks/mobility/README
       - file: notebooks/nighttime-lights/README
+  - caption: Sample Indicators and Insights
+      - file: sample-indicators
   - caption: Acknowledgements
     chapters:
       - file: docs/team
