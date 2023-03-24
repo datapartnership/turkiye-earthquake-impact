@@ -22,7 +22,9 @@ agg_ntl <- function(ntl_df, start, end){
   return(df_out)
 }
 
-ntl_sum_df <- list(agg_ntl(ntl_df, "2023-02-06", "2023-02-06"),
+ntl_sum_df <- list(agg_ntl(ntl_df, "2023-02-27", "2023-03-03"),
+                   
+                   agg_ntl(ntl_df, "2023-02-06", "2023-02-06"),
                    agg_ntl(ntl_df, "2023-02-06", "2023-02-07"),
                    agg_ntl(ntl_df, "2023-02-06", "2023-02-08"),
                    
