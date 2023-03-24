@@ -16,7 +16,20 @@ Code to replicate the analysis can be found [here](https://github.com/datapartne
 
 The code largely relies on an R package (`blackmarbler`) that is currently being created to faciliate downloading and processing Black Marble nighttime lights data. The package [documentation](https://ramarty.github.io/blackmarbler/) provides some generic examples for how to download data, make a map of nighttime lights, and show trends in nighttime lights. The below code leverages the package to produce analytics for Turkiye. 
 
-The main script ([_main.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R)) loads all packages and runs all scripts for the analysis. There are separate scripts for processing the data (e.g., [downloading and cleaning Black Marble data](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R)). The scripts download rasters of nighttime lights, then create datasets of average nighttime lights within different units (e.g., administrative level 2 dataset). The following code generates figures and analysis of the data:
+The main script ([_main.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R)) loads all packages and runs all scripts for the analysis. Below we document scripts for (1) creating analysis-ready datasets and (2) producing analytics (eg, figures) of nighttime lights data.
+
+### Create Analysis-Ready Nighttime Lights Datasets
+
+The below code downloads and processes nighttime lights data. 
+
+* [01_clean_gas_flaring_data.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/01_clean_gas_flaring_data.R): Produces a clean dataset of the locations of gas flaring locations. This dataset is needed because we summarize nighttime lights for (1) all lights, (2) lights excluding gas flaring loations, and (3) lights only in gas flaring locations.
+* [02_download_black_marble.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R): Downloads Black Marble nighttime lights data for annual, monthly, and daily nighttime lights data. The script exports a geotiff file of nighttime lights for each time period (eg, for each year for annual data). If the script is run at a later date, only data that has not already been downloaded will be downloaded.
+* [03_aggregate.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/03_aggregate): Aggregates nighttime lights to administrative levels 0, 1 and 2. Calculates average nighttime lights within each administrative unit. The script produces a separate file for each time period. For example, for daily data, a single dataset is saved for aggregated nighttime lights for January 1, 2023, at the ADM2 level. The next script appends files across time periods (eg, days) into a single dataset. Separate files are saved in order to facilitate aggregating new data, as aggregating data can take some time. The script skips aggregating data that has already been processed.
+* [04_append.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/04_append.R): Appends aggregated data for each time period. Creates a separate datasets for annual, monthly, and daily nighttime lights data.
+
+### Nighttime Lights Analytics
+
+The below code analyzes the nighttime lights data, producing figures and tables.
 
 * [05_map_ntl_annual.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R): Produce annual maps of nighttime lights
 * [05_maps_ntl_changes.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R): Produce maps of changes in nighttime lights from before and after the earthquake.
@@ -24,13 +37,15 @@ The main script ([_main.R](https://github.com/datapartnership/turkiye-earthquake
 * [05_ntl_trends_monthly.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_ntl_trends_monthly.R): Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.
 * [05_avg_ntl_by_period.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_avg_ntl_by_period.R): Create a dataset of average nighttime lights for each administrative unit for different time periods.
 
+## Data
+
 The data for the analysis can be accessed from:
 
 * [Gas Flaring Location Data](https://datacatalog.worldbank.org/search/dataset/0037743)
 
 * __Black Marble Nighttime Lights:__ There are two options to access the data:
 
-  * The code [here](https://github.com/datapartnership/syria-economic-monitor/blob/main/notebooks/ntl-analysis/01_download_black_marble.R) downloads raw data from the [NASA archive](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A3/) and processes the data for Turkiye---mosaicing raster tiles together to cover Turkiye. Running the code requires a NASA bearer token; the documentation [here](https://github.com/ramarty/blackmarbler) describes how to obtain a token.
+  * The code [here](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R) downloads raw data from the [NASA archive](https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A3/) and processes the data for Turkiye---mosaicing raster tiles together to cover Turkiye. Running the code requires a NASA bearer token; the documentation [here](https://github.com/ramarty/blackmarbler) describes how to obtain a token.
 
   * Pre-processed data can be downloaded from [here](URL), using the __Night Time Lights BlackMarble Data__
 
