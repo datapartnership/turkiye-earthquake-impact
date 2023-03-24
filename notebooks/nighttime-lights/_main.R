@@ -7,8 +7,6 @@ if(Sys.info()[["user"]] == "robmarty"){
   git_dir  <- "~/Documents/Github/turkiye-earthquake-impact"
   data_dir <- file.path("~", "Dropbox", "World Bank", "Side Work", 
                         "Turkiye Earthquake Impact", "Data")
-  # fig_dir <- file.path("~", "Dropbox", "World Bank", "Side Work", 
-  #                       "Turkiye Earthquake Impact", "Outputs", "figures")
 } 
 
 #### Data Paths from Root
@@ -22,25 +20,29 @@ eq_usgs_dir   <- file.path(data_dir, "earthquake_intensity")
 fig_dir       <- file.path(git_dir, "reports", "figures")
 
 # Packages ---------------------------------------------------------------------
-library(dplyr)
-library(readr)
-library(readxl)
-library(janitor)
-library(geodata)
-library(sf)
-library(sp)
-library(rgdal)
-library(rgeos)
-library(raster)
-library(lubridate)
-library(blackmarbler)
-library(exactextractr)
-library(stringr)
-library(ggplot2)
-library(purrr)
-library(tidyverse)
-library(leaflet)
-library(ggpubr)
+pacman::p_load(dplyr,
+               readr,
+               readxl,
+               janitor,
+               geodata,
+               sf,
+               sp,
+               rgdal,
+               rgeos,
+               raster,
+               lubridate,
+               exactextractr,
+               stringr,
+               ggplot2,
+               purrr,
+               tidyverse,
+               leaflet,
+               ggpubr,
+               devtools)
+
+if(!require(blackmarbler)){
+  devtools::install_github("ramarty/blackmarbler")
+}
 
 # Functions --------------------------------------------------------------------
 pad3 <- function(x){
