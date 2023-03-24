@@ -4,7 +4,7 @@
 
 # Load data --------------------------------------------------------------------
 ## ADM2 Boundaries
-adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>% st_as_sf()
+adm2_sf <- read_sf(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) 
 
 # Annual map -------------------------------------------------------------------
 for(year_i in 2012:2021){

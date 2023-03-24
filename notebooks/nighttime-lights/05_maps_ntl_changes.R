@@ -16,7 +16,7 @@ adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>%
   dplyr::select(pcode)
 
 ## Daily NTL at ADM2
-ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", paste0("adm2_VNP46A2.Rds")))
+ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
 
 ## Earthquake intensity data
 eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max.csv"))
@@ -49,7 +49,8 @@ ntl_sum_df <- ntl_df %>%
   
   ## Merge in earthquake data and determine max intensity
   left_join(eq_df, by = "pcode") %>%
-  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7, mmi_feb06_7p5, mmi_feb20_6p3, 
+  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7, 
+                       mmi_feb06_7p5, mmi_feb20_6p3, 
                        mmi_feb06_7p8, mmi_feb06_6p0)) 
 
 ## Merge in percent change data to ADM2 spatial file
