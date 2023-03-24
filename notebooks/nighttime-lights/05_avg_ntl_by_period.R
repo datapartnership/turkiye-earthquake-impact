@@ -1,8 +1,8 @@
 # Aggregate NTL by Time
 
 # Load data --------------------------------------------------------------------
-ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", paste0("adm2", "_", "VNP46A2", ".Rds")))
-eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max.csv"))
+ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
+eq_df  <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max.csv"))
 
 eq_df <- eq_df %>%
   dplyr::select(pcode, adm2_en)

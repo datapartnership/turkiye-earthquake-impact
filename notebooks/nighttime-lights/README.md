@@ -14,7 +14,36 @@ We extract average nighttime lights within each administrative unit in Turkiye. 
 
 ## Implementation
 
-Code to replicate the analysis can be found [here](https://github.com/datapartnership/turkiye-earthquake-impact/tree/ntl/notebooks/nighttime-lights).
+Code to replicate the analysis can be found [here](https://github.com/datapartnership/turkiye-earthquake-impact/tree/ntl/notebooks/nighttime-lights). 
+
+The below documentation discusses key code for processing nighttime lights data.
+
+### Setup
+
+The below code loads relevant packages and defines file paths to relevant project folders. The below code is also found in ([_main.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R)), but the below code only focuses on the relevant packages and file paths needed to run the below code in this documentation.
+
+```{r}
+#### Filepaths
+## Define root file path to project data directory
+data_dir <- file.path("~", "Sharepoint", "World Bank", "Side Work", 
+                      "Turkiye Earthquake Impact", "Data")
+                      
+## Define file paths from data directory
+gas_flare_dir <- file.path(data_dir, "Global Gas Flaring")
+ntl_bm_dir    <- file.path(data_dir, "NTL BlackMarble")
+tess_dir      <- file.path(data_dir, "tessellation")
+adm_dir       <- file.path(data_dir, "turkey_administrativelevels0_1_2")
+eq_usgs_dir   <- file.path(data_dir, "earthquake_intensity")
+           
+#### Packages
+## Packages from CRAN
+# install.packages("pacman") # Run this if pacman not installed
+pacman::p_load("devtools", "dplyr", "raster")
+
+## User defined-packages
+devtools::install_github("ramarty/blackmarbler")
+library(blackmarbler)
+```
 
 The main script ([_main.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R)) loads all packages and runs all scripts for the analysis. There are separate scripts for processing the data (e.g., [downloading and cleaning Black Marble data](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R)). The scripts download rasters of nighttime lights, then create datasets of average nighttime lights within different units (e.g., administrative level 2 dataset). The following code generates figures and analysis of the data:
 

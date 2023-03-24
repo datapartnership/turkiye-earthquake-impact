@@ -19,14 +19,46 @@ roi_sp$id <- 1
 roi_sp <- raster::aggregate(roi_sp, by = "id")
 roi_sf <- roi_sp %>% st_as_sf()
 
+# Download data ----------------------------------------------------------------
+## Annual Data
+bm_raster(roi_sf = roi_sf,
+          product_id = "VNP46A4",
+          date = 2012:2021,
+          bearer = BEARER,
+          output_location_type = "file",
+          file_dir = file.path(ntl_bm_dir, "FinalData", "VNP46A4_rasters"))
+
+## Monthly Data
+bm_raster(roi_sf = roi_sf,
+          product_id = "VNP46A3",
+          date = seq.Date(from = ymd("2022-01-01"), to = Sys.Date(), by = "month"),
+          bearer = BEARER,
+          output_location_type = "file",
+          file_dir = file.path(ntl_bm_dir, "FinalData", "VNP46A3_rasters"))
+
+## Daily Data
+bm_raster(roi_sf = roi_sf,
+          product_id = "VNP46A2",
+          date = seq.Date(from = ymd("2023-01-01"), to = Sys.Date(), by = "day"),
+          bearer = BEARER,
+          output_location_type = "file",
+          file_dir = file.path(ntl_bm_dir, "FinalData", "VNP46A2_rasters"))
+
+
+
+
+
+
 # Download annual data ---------------------------------------------------------
 # Downloads a raster for each month. If raster already created, skips calling 
 # function.
 
+
+
 years <- 2012:2021
 
 for(year_i in years){
-
+  
   OUT_FILE <- file.path(ntl_bm_dir,
                         "FinalData",
                         "VNP46A4_rasters",

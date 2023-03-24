@@ -1,11 +1,15 @@
-# NTL Maps: Annually
+# NTL Maps
+
+# Make maps of nighttime lights for each year
 
 # Load data --------------------------------------------------------------------
+## ADM2 Boundaries
 adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>% st_as_sf()
 
 # Annual map -------------------------------------------------------------------
 for(year_i in 2012:2021){
-  r <- raster(file.path(ntl_bm_dir, "FinalData", "VNP46A4_rasters", paste0("bm_VNP46A4_",year_i,".tif")))
+  r <- raster(file.path(ntl_bm_dir, "FinalData", "VNP46A4_rasters", 
+                        paste0("bm_VNP46A4_",year_i,".tif")))
   
   #### Prep data
   r <- r %>% crop(adm2_sf) %>% mask(adm2_sf) 
