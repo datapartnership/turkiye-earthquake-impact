@@ -55,7 +55,7 @@ The data for the analysis can be accessed from:
 
 The below figure shows nighttime lights from the latest year available. As expected, Turkiye’s largest cities are the most brightly lit – such as Instanbul in the north west.
 
-[This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R) produces the below figure, where the relevant code is also documented below. Befor running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
+[This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R) produces the below figure, where the relevant code is also documented below. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
 ```{r}
 #### Load Turkiye polygon
@@ -106,7 +106,7 @@ Nighttime lights in 2021
 
 The below figures show the change in nighttime lights from the two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figures show that many locations saw an increase in nighttime lights immediately after the earthquake. Increases in nighttime lights could result from lights generated from rescue efforts.
 
-[This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R) produces the below two figures, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using [this script](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_maps_ntl_changes.R). Befor running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
+[This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R) produces the below two figures, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
 ```{r}
 #### Load data
@@ -205,7 +205,7 @@ Change in nighttime lights from two weeks before the earthquake (February 6, 202
 
 The below figure shows daily trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher). In most locations, nighttime lights remains relatively unchanged. However, Antakya---which had the largest nighttime lights---saw a sharp reduction in nighttime lights.
 
-[This script](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_ntl_trends_daily.R) produces the below figure, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using [this script](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_maps_ntl_changes.R). Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
+[This script](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_ntl_trends_daily.R) produces the below figure, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
 ```{r}
 #### Load and prepare data
