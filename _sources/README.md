@@ -12,11 +12,11 @@ The Türkiye Country Economist team has requested advisory on data and analytica
 
 ## Solution
 
-The Türkiye Country Economist team requested the WB Data Lab to explore use of alternative data to better understand immediate socio-economic impacts of the earthquake and resiliency of the affected economies. To this end, the team prepared a [Strategic Brief](https://datapartnership.org/turkiye-earthquake-impact/reports/turkiye-earthquake-strategic-brief.html), which presents available datasets and analytics to support answers to these questions. 
+The Türkiye Country Economist team requested the WB Data Lab to explore use of alternative data to better understand immediate socio-economic impacts of the earthquake and resiliency of the affected economies. To this end, the team prepared a [Strategic Brief](https://datapartnership.org/turkiye-earthquake-impact/reports/turkiye-earthquake-strategic-brief.html), which presents available datasets and analytics to support answers to these questions.
 
 From this Brief, the team requested the Lab to focus on trends in observed nighttime lights, internet connectivity, population movement, and retail activity.
 
-The team, comprised of colleagues from the Global Operations Support Team (GOST), the Development Impact Monitoring and Evaluation team (DIME), the Development Data Partnership, and the WB Data Lab, worked with the country team to explore use of alternative open and proprietary data sources to generate new data products that can be sustainably updated. 
+The team, comprised of colleagues from the Global Operations Support Team (GOST), the Development Impact Monitoring and Evaluation team (DIME), the Development Data Partnership, and the WB Data Lab, worked with the country team to explore use of alternative open and proprietary data sources to generate new data products that can be sustainably updated.
 
 ### Data Goods
 
@@ -24,7 +24,8 @@ Datasets and methods used to generate insights for this project have been prepar
 
 ## Contents
 
-*Forthcoming*
+```{tableofcontents}
+```
 
 ## Data
 
