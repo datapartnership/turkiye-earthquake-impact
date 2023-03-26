@@ -14,6 +14,9 @@ parts:
   - caption: Data Products
     chapters:
       - file: notebooks/mobility/README
+        sections:
+          - file: notebooks/mobility/02a-activity.ipynb
+          - file: notebooks/mobility/02b-poi-visitation.ipynb
       - file: notebooks/nighttime-lights/README
   - caption: Sample Indicators and Insights
     chapters:
