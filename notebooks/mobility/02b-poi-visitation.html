@@ -1,0 +1,1033 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Estimating Activity based on Point of Interest Visitation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://datapartnership.github.io/turkiye-earthquake-impact/notebooks/mobility/02b-poi-visitation.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Nighttime Lights" href="../nighttime-lights/README.html" />
+    <link rel="prev" title="Activity based on Mobility" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Strategic Brief
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../reports/turkiye-earthquake-strategic-brief.html">
+   Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Data Goods
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/introduction_to_data_goods.html">
+   Introduction to Data Goods
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundational Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/foundational_datasets_and_data_products.html">
+   Foundational Datasets and Data Products Summary
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Data Products
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Activity based on Mobility
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Estimating Activity based on Point of Interest Visitation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../nighttime-lights/README.html">
+   Nighttime Lights
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sample Indicators and Insights
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/sample-indicators.html">
+   Sample Indicators
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Acknowledgements
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../docs/team.html">
+   Data Goods Team and Acknowledgements
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/datapartnership/turkiye-earthquake-impact/main?urlpath=tree/notebooks/mobility/02b-poi-visitation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/datapartnership/turkiye-earthquake-impact"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/issues/new?title=Issue%20on%20page%20%2Fnotebooks/mobility/02b-poi-visitation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/edit/main/notebooks/mobility/02b-poi-visitation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/notebooks/mobility/02b-poi-visitation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#area-of-interest">
+     Area of Interest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#openstreetmap">
+     OpenStreetMap
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#veraset-movement">
+     Veraset Movement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methodology">
+   Methodology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#by-total-area">
+     By total area
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#by-first-level-administrative-divisions">
+     By first-level administrative divisions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Estimating Activity based on Point of Interest Visitation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#area-of-interest">
+     Area of Interest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#openstreetmap">
+     OpenStreetMap
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#veraset-movement">
+     Veraset Movement
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methodology">
+   Methodology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#by-total-area">
+     By total area
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#by-first-level-administrative-divisions">
+     By first-level administrative divisions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#limitations">
+   Limitations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="estimating-activity-based-on-point-of-interest-visitation">
+<h1>Estimating Activity based on Point of Interest Visitation<a class="headerlink" href="#estimating-activity-based-on-point-of-interest-visitation" title="Permalink to this headline">#</a></h1>
+<p>Estimating <strong>visitation</strong> within or in the proximity to points of interest, such as residential, commercial and industrial, zones can potentially provide insights in the aftermath of the <a class="reference external" href="https://www.usgs.gov/news/featured-story/m78-and-m75-kahramanmaras-earthquake-sequence-near-nurdagi-turkey-turkiye">earthquakes near Nurdağı, Türkiye</a>. Similarly to <a class="reference external" href="https://www.google.com/covid19/mobility/">Google Community Mobility Reports</a> (now discontinued), the following working methodology seeks to capture the change in mobility (i.e., number of visits) within OpenStreetMap points of interest compared to a baseline (Jan-23). Note that the mobility data represents a subset of the total population in an area, specifically only users that turned on the Location Services device setting on their mobile device. This is not the total population density.</p>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">#</a></h2>
+<p>In this section, we import from the data sources manipulated throughout the notebook. Note that <code class="docutils literal notranslate"><span class="pre">data</span></code> is a placeholder location where we recommended to place the interim data. When using non-public data, please carefully  abide by the terms and conditions and data classification.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://papermill.readthedocs.io/en/latest/usage-parameterize.html</span>
+<span class="n">COUNTRY</span> <span class="o">=</span> <span class="s2">&quot;TR&quot;</span>
+<span class="n">PANEL</span> <span class="o">=</span> <span class="s2">&quot;v2023.3.19&quot;</span>
+<span class="n">TAG</span> <span class="o">=</span> <span class="s2">&quot;landuse&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="area-of-interest">
+<h3>Area of Interest<a class="headerlink" href="#area-of-interest" title="Permalink to this headline">#</a></h3>
+<p>In this study, the <strong>area of interest</strong> is defined as the <a class="reference external" href="https://reliefweb.int/report/turkiye/turkey-earthquake-emergency-situation-report-17022023">affected 11 provinces in Türkiye</a> and the area highlighted in northern Syria as shown below.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">AOI</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;../../data/interim/tessellation/SYRTUR_tessellation.gpkg&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;geopandas&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">AOI</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">style_kwds</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;stroke&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">})</span>
+
+<span class="ne">NameError</span>: name &#39;AOI&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="openstreetmap">
+<h3>OpenStreetMap<a class="headerlink" href="#openstreetmap" title="Permalink to this headline">#</a></h3>
+<p>Using the <a class="reference external" href="https://hotosm.org">Humanitarian OpenStreetMap</a>’s <a class="reference external" href="https://export.hotosm.org/en/v3/">Export Tool</a>, the project team obtained a OSM dataset of points of interest within a clipping boundary defined by the <a class="reference external" href="#area-of-interest">area of interest</a> between Türkiye and Syria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">POI</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+    <span class="s2">&quot;../../data/external/export.hotosm.org/hotosm_worldbank_tur_points_of_interest_gpkg.zip!hotosm_worldbank_tur_points_of_interest.gpkg&quot;</span><span class="p">,</span>
+    <span class="n">npartitions</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">POI</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="s2">&quot;../../data/external/export.hotosm.org/hotosm_worldbank_tur_points_of_interest_gpkg.zip!hotosm_worldbank_tur_points_of_interest.gpkg&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">npartitions</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dask_geopandas&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>To illustrate, we visualize below the points of interest tagged with <code class="docutils literal notranslate"><span class="pre">landuse=industrial</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">POI</span><span class="p">[</span><span class="n">POI</span><span class="p">[</span><span class="n">TAG</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;industrial&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">POI</span><span class="p">[</span><span class="n">POI</span><span class="p">[</span><span class="n">TAG</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;industrial&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span><span class="o">.</span><span class="n">explore</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;POI&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="veraset-movement">
+<h3>Veraset Movement<a class="headerlink" href="#veraset-movement" title="Permalink to this headline">#</a></h3>
+<p>Veraset Movement provides a panel of human mobility data, based on data collection of GPS-enabled devices location.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ddf</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;../../data/final/panels/</span><span class="si">{</span><span class="n">PANEL</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">filters</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">COUNTRY</span><span class="p">)],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ddf</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sa">f</span><span class="s2">&quot;../../data/final/panels/</span><span class="si">{</span><span class="n">PANEL</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">filters</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">COUNTRY</span><span class="p">)],</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dd&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculating <code class="docutils literal notranslate"><span class="pre">date</span></code> from the date and time the points were collected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ddf</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ddf</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ddf</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ddf</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dd&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">#</a></h2>
+<p>Similarly to <a class="reference external" href="https://www.google.com/covid19/mobility/">Google Community Mobility Reports</a> (now discontinued), the following working methodology seeks to capture the change in mobility (i.e., number of visits) within OpenStreetMap points of interest compared to a baseline (Jan-23). Note that the mobility data represents a subset of the total population in an area, specifically only users that turned on the Location Services device setting on their mobile device. This is not the total population density.</p>
+<p>Using <a class="reference external" href="https://dask-geopandas.readthedocs.io/en/stable/">Dask-GeoPandas</a>, we calculate the number of devices seen within the points of interest and aggregate by the <code class="docutils literal notranslate"><span class="pre">landuse</span></code> classication (e.g, residential), H3 index and date.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gddf</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">from_dask_dataframe</span><span class="p">(</span>
+    <span class="n">ddf</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="o">=</span><span class="n">dask_geopandas</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">ddf</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">gddf</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">from_dask_dataframe</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">ddf</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">geometry</span><span class="o">=</span><span class="n">dask_geopandas</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">ddf</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span><span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;dask_geopandas&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We execute a spatial join (without H3) to aggregate the number of devices for each spatial and temporal bin. In this case, we use <code class="docutils literal notranslate"><span class="pre">H3</span> <span class="pre">resolution</span> <span class="pre">6</span></code> and a daily aggregation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">gddf</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">POI</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">TAG</span><span class="p">,</span> <span class="s2">&quot;hex_id&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">])[</span><span class="s2">&quot;uid&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">gddf</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">POI</span><span class="p">,</span> <span class="n">predicate</span><span class="o">=</span><span class="s2">&quot;within&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">TAG</span><span class="p">,</span> <span class="s2">&quot;hex_id&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">])[</span><span class="s2">&quot;uid&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;gddf&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, the results joined into administrative divisions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">AOI</span><span class="p">[[</span><span class="s2">&quot;hex_id&quot;</span><span class="p">,</span> <span class="s2">&quot;ADM0_PCODE&quot;</span><span class="p">,</span> <span class="s2">&quot;ADM1_PCODE&quot;</span><span class="p">,</span> <span class="s2">&quot;ADM2_PCODE&quot;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;hex_id&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">AOI</span><span class="p">[[</span><span class="s2">&quot;hex_id&quot;</span><span class="p">,</span> <span class="s2">&quot;ADM0_PCODE&quot;</span><span class="p">,</span> <span class="s2">&quot;ADM1_PCODE&quot;</span><span class="p">,</span> <span class="s2">&quot;ADM2_PCODE&quot;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;hex_id&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;result&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h2>
+<p>In this section, we visualize the daily number of devices detected within each of the following OSM <code class="docutils literal notranslate"><span class="pre">landuse</span></code> classification.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FEATURES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;residential&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;commercial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;industrial&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;farmland&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;construction&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;education&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_visitation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;POI Visitation&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot number of visits to OSM points of interest&quot;&quot;&quot;</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+        <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span>
+        <span class="n">x_axis_type</span><span class="o">=</span><span class="s2">&quot;datetime&quot;</span><span class="p">,</span>
+        <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;Number of devices&quot;</span><span class="p">,</span>
+        <span class="n">y_axis_type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span>
+        <span class="n">y_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">),</span>
+        <span class="n">tools</span><span class="o">=</span><span class="s2">&quot;pan,wheel_zoom,box_zoom,reset,save,box_select&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span><span class="n">Legend</span><span class="p">(),</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span>
+        <span class="n">Title</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Number of devices detected within OSM &#39;</span><span class="si">{</span><span class="n">TAG</span><span class="si">}</span><span class="s2">&#39; for each 3-day time window&quot;</span><span class="p">,</span>
+            <span class="n">text_font_size</span><span class="o">=</span><span class="s2">&quot;12pt&quot;</span><span class="p">,</span>
+            <span class="n">text_font_style</span><span class="o">=</span><span class="s2">&quot;italic&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s2">&quot;above&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span>
+        <span class="n">Title</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Source: Veraset Movement. Creation date: </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> %B %Y&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">. Feedback: datalab@worldbank.org.&quot;</span><span class="p">,</span>
+            <span class="n">text_font_size</span><span class="o">=</span><span class="s2">&quot;10pt&quot;</span><span class="p">,</span>
+            <span class="n">text_font_style</span><span class="o">=</span><span class="s2">&quot;italic&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="s2">&quot;below&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">Span</span><span class="p">(</span>
+                <span class="n">location</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+                <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span>
+                <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span>
+                <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">line_dash</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+            <span class="p">),</span>
+            <span class="n">Span</span><span class="p">(</span>
+                <span class="n">location</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+                <span class="n">dimension</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span>
+                <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span>
+                <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">line_dash</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+            <span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">renderers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,</span> <span class="n">COLORS</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+                <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">legend_label</span><span class="o">=</span><span class="n">column</span><span class="p">,</span>
+                <span class="n">line_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">renderers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_tools</span><span class="p">(</span>
+        <span class="n">HoverTool</span><span class="p">(</span>
+            <span class="n">tooltips</span><span class="o">=</span><span class="s2">&quot;date: @x{</span><span class="si">%F</span><span class="s2">}, devices: @y&quot;</span><span class="p">,</span>
+            <span class="n">formatters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;@x&quot;</span><span class="p">:</span> <span class="s2">&quot;datetime&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">p</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;bottom_left&quot;</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">click_policy</span> <span class="o">=</span> <span class="s2">&quot;hide&quot;</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text_font_size</span> <span class="o">=</span> <span class="s2">&quot;16pt&quot;</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">sizing_mode</span> <span class="o">=</span> <span class="s2">&quot;scale_both&quot;</span>
+    <span class="k">return</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="by-total-area">
+<h3>By total area<a class="headerlink" href="#by-total-area" title="Permalink to this headline">#</a></h3>
+<p>By aggregating the visitation tally, we show a smoothed representation of how many users were detected within the total area for each 3-day time period.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">TAG</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">result</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">TAG</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;result&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_notebook</span><span class="p">()</span>
+<span class="n">show</span><span class="p">(</span><span class="n">plot_visitation</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">output_notebook</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">show</span><span class="p">(</span><span class="n">plot_visitation</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="ne">NameError</span>: name &#39;output_notebook&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="by-first-level-administrative-divisions">
+<h3>By first-level administrative divisions<a class="headerlink" href="#by-first-level-administrative-divisions" title="Permalink to this headline">#</a></h3>
+<p>By aggregating the visitation tally, we show a smoothed representation of how many users were detected within each first-level administrative division and for each 3-day time period.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabs</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># iterate over first-level administrative divisions</span>
+<span class="k">for</span> <span class="n">pcode</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;ADM1_PCODE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;ADM1_PCODE&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pcode</span><span class="p">]</span>
+        <span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">TAG</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">tabs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">TabPanel</span><span class="p">(</span>
+            <span class="n">child</span><span class="o">=</span><span class="n">plot_visitation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;POI Visitation (</span><span class="si">{</span><span class="n">pcode</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">),</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">pcode</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="c1"># plot panel</span>
+<span class="n">tabs</span> <span class="o">=</span> <span class="n">Tabs</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="n">tabs</span><span class="p">,</span> <span class="n">sizing_mode</span><span class="o">=</span><span class="s2">&quot;scale_both&quot;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">tabs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">tabs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># iterate over first-level administrative divisions</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">for</span> <span class="n">pcode</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;ADM1_PCODE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">result</span><span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;ADM1_PCODE&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pcode</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">TAG</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s2">&quot;3D&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>         <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">tabs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">TabPanel</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>             <span class="n">child</span><span class="o">=</span><span class="n">plot_visitation</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;POI Visitation (</span><span class="si">{</span><span class="n">pcode</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>             <span class="n">title</span><span class="o">=</span><span class="n">pcode</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;result&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that the mobility data represents a subset of the total population in an area, specifically only users that turned on the Location Services device setting on their mobile device. This is not the total population density.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/mobility"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Activity based on Mobility</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../nighttime-lights/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Nighttime Lights</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By World Bank Development Data Group<br/>
+  
+    Last updated on Mar 26, 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
