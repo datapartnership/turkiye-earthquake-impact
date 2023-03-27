@@ -16,8 +16,13 @@ For this project, sample indicators have been derived and aggregated at the Admi
 
 * Nighttime Lights (% change)
 
-* Government-Reported Number of Collapsed and Heavility Damaged Buildings
+* Government-Reported Number of Collapsed and Heavily Damaged Buildings
 
 
+### Sample indicator: Observing change in Business Activity for the manufacturing industry 
+
+By overlaying multiple datasets together, it is possible to study changes in business activity further. For instance, in the below map, we can see the changes in Business Activity for the retail sector overlayed with damaged buildings information from the MoECC. Some admin 2 regions' retail activity remained relatively unaffected immediatrly after the earthquake despite damage to buildings. 
+
+<iframe width="100%" height="500px" src="https://studio.foursquare.com/public/1a818869-6a2e-41a9-a261-2aec58cf468e/embed" frameborder="0" allowfullscreen></iframe>
 
 
