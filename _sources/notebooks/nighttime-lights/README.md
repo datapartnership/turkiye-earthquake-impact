@@ -57,7 +57,7 @@ The below figure shows nighttime lights from the latest year available. As expec
 
 [This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R) produces the below figure, where the relevant code is also documented below. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
-```{r}
+```
 #### Load Turkiye polygon
 adm2_sf <- read_sf(dsn = file.path(adm_dir, "tur_polbna_adm2.shp"))
 
@@ -108,7 +108,7 @@ The below figures show the change in nighttime lights from the two weeks before 
 
 [This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R) produces the below two figures, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
-```{r}
+```
 #### Load data
 ## Daily NTL at ADM2
 ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
@@ -207,7 +207,7 @@ The below figure shows daily trends in nighttime lights for administrative units
 
 [This script](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_ntl_trends_daily.R) produces the below figure, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
-```{r}
+```
 #### Load and prepare data
 ## Daily NTL at ADM2 Level
 ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
