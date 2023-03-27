@@ -16,11 +16,11 @@ Where feasible, all datasets that can be obtained through the Development Data H
 | --- | ---- | ------- | ----------- | ---------------- | ------ | ------- |
 | 1      | Türkiye - Subnational Administrative Boundaries                       | Open                   | Admin boundaries up to level 3                                                                                        | Every year (Last updated in 27 February 2023)                                      | [HDX](https://data.humdata.org/dataset/cod-ab-tur)                                     | [Sahiti Sarva](mailto:ssarva@worldbank.org), Data Lab                     |
 | 2      | Mobility Data                           | Proprietary            | Timestamped lat/lon points provided by Veraset Movement                               | Weekly (Daily possible)                                          | [Development Data Partnership](https://portal.datapartnership.org/submitproposal)                                                       |  [Development Data Partnership](mailto:datapartnership@worldbank.org)                                |
-| 3   |      |         |             |                  |        |         |
-| 4   |      |         |             |                  |        |         |
-| 5   |      |         |             |                  |        |         |
-| 6   |      |         |             |                  |        |         |
-| 7   |      |         |             |                  |        |         |
+| 3   |  Meta Business Activity Trends during crisis   |   Proprietary      |     Timestamped at GADM2 Level        |      Daily after the earthquake            |  [Development Data Partnership](https://portal.datapartnership.org/submitproposal)       |    [Development Data Partnership](mailto:datapartnership@worldbank.org)      |
+| 4   |  Meta Network Connectivity Maps during crisis    |    Proprietary     |    Timestamped at Bing Tile Level 16 (~600m)     |      Daily after the earthquake            |   [Development Data Partnership](https://portal.datapartnership.org/submitproposal)     |   [Development Data Partnership](mailto:datapartnership@worldbank.org)      |
+| 5   |  Ookla Speedtest Intelligence    |  Proprietary       |      Timestamped lat/long points       |       Daily           |   [Development Data Partnership](https://portal.datapartnership.org/submitproposal)     |  [Development Data Partnership](mailto:datapartnership@worldbank.org)        |
+| 6   |  BlackMarble Night Lights Data    |    Open     |      Timestamped lat/lon points       |      Daily            |        |         |
+| 7   |  Premise Household needs survey    |   Proprietary      |   Timestamped lat/lon points of survey results          |       Will not be updated           |   [Development Data Partnership](https://portal.datapartnership.org/submitproposal)     |    [Development Data Partnership](mailto:datapartnership@worldbank.org)     |
 
 ## Data Products Summary
 
@@ -31,5 +31,6 @@ Following is a summary of Data Products used in this Data Good:
 | ID  | Name | Description | Limitations | Foundational Datasets Used (ID#) |
 | --- | ---- | ----------- | ----------- | -------------------------------- |
 |  A         |  Observed POI Visitation based on mobility traces  |     Daily aggregated analysis of trip   patterns through formal and informal checkpoints, over time.                       |     Convenience sampling; Sample size is    limited                                                                                                                                                   |     1,2                    |
-| B   |      |             |             |                                  |
-| C   |      |             |             |                                  |
+| B   | Observed changes in Business Activity Trends     |    Daily and weekly aggregated business activity trends per business vertical         |   Only uses data from Facebook users          |     1, 4                             |
+| C   |  Observed changes in NightLight Data    |   Weekly aggregated trends in nightlight connectivity          |             |          1,6                        |
+| D   |  Observed changes in Internet Connectivity    |     Daily and weekly aggregated by admin 1 and admin 2 levels        |    Only uses data from users who volunatrily conducted a speedtest or are Facebook users.         |          1,4,5                        |
