@@ -16,7 +16,7 @@ For this project, sample indicators have been derived and aggregated at the Admi
 
 * Nighttime Lights (% change)
 
-* Government-Reported Number of Collapsed and Heavility Damaged Buildings
+* Government-Reported Number of Collapsed and Heavily Damaged Buildings
 
 
 ### Sample indicator: Observing change in Business Activity for the manufacturing industry 
