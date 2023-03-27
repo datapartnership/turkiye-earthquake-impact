@@ -1,47 +1,66 @@
-# Nighttime Lights Change Map: ADM2
+# Nighttime Lights Change Map at ADM2 Level
+
+# Show changes in NTL at the ADM2 level. Show:
+# 1. Percent change in NTL
+# 2. Map showing ADM2s with large increase/decrease in NTL
+# 3. Figures showing trends in NTL for example ADM2s with large increase/decrease in NTL
 
 # Load data --------------------------------------------------------------------
-adm0_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbnda_adm0.shp")) %>% 
+## ADM0 Boundary
+adm0_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbnda_adm0.shp")) %>%
   st_as_sf()
 
-adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>% 
+## ADM2 Boundary
+adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>%
   st_as_sf() %>%
   dplyr::select(pcode)
 
-ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", paste0("adm2", "_", "VNP46A2", ".Rds")))
+## Daily NTL at ADM2
+ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
 
+## Earthquake intensity data
 eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max.csv"))
 
 # Prep data --------------------------------------------------------------------
 ntl_sum_df <- ntl_df %>%
-  dplyr::mutate(period_2wk = case_when(
+
+  ## Classify time as two weeks before/after
+  dplyr::mutate(period = case_when(
     date %in% ymd("2023-01-23"):ymd("2023-02-05") ~ "ntl_before",
     date %in% ymd("2023-02-07"):ymd("2023-02-20") ~ "ntl_after"
   )) %>%
-  dplyr::mutate(period_1wk = case_when(
-    date %in% ymd("2023-01-30"):ymd("2023-02-05") ~ "ntl_before",
-    date %in% ymd("2023-02-07"):ymd("2023-02-13") ~ "ntl_after"
-  )) %>%
-  dplyr::mutate(period = period_2wk) %>%
+
+  ## Average NTL by ADM2 and time period (two weeks before / after)
   group_by(period, pcode) %>%
   dplyr::summarise(ntl_bm_mean = mean(ntl_bm_mean)) %>%
+
+  ## Reshape from long to wide
   ungroup() %>%
   pivot_wider(id_cols = pcode, names_from = period, values_from = ntl_bm_mean) %>%
+
+  ## Determine % change and classify as large increase/decrease
   mutate(ntl_pchange = (ntl_after - ntl_before) / ntl_before * 100) %>%
-  left_join(eq_df, by = "pcode") %>%
-  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7, mmi_feb06_7p5, mmi_feb20_6p3, mmi_feb06_7p8, mmi_feb06_6p0)) %>%
+
   dplyr::mutate(change_type = case_when(
     ntl_pchange >= 10 ~ "> 10% Increase",
     ntl_pchange <= -10 ~ "> 10% Decrease",
     TRUE ~ "Small change"
-  ))
+  )) %>%
 
+  ## Merge in earthquake data and determine max intensity
+  left_join(eq_df, by = "pcode") %>%
+  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7,
+                       mmi_feb06_7p5, mmi_feb20_6p3,
+                       mmi_feb06_7p8, mmi_feb06_6p0))
+
+## Merge in percent change data to ADM2 spatial file
 adm2_sf <- adm2_sf %>%
   left_join(ntl_sum_df, by = "pcode")
 
+## Deal with outliers
 adm2_sf$ntl_pchange[adm2_sf$ntl_pchange > 50] <- 50
 
-# P Change ---------------------------------------------------------------------
+# [Map] % Change ---------------------------------------------------------------
 p <- ggplot() +
   geom_sf(data = adm0_sf,
           fill = "gray50") +
@@ -61,7 +80,7 @@ p <- ggplot() +
 ggsave(p, filename = file.path(fig_dir, "ntl_adm2_map_raw.png"),
        height = 6, width = 10)
 
-# Categories -------------------------------------------------------------------
+# [Map] 10% Increase/Decrease --------------------------------------------------
 p <- ggplot() +
   geom_sf(data = adm0_sf,
           fill = "gray50") +
@@ -78,7 +97,7 @@ p <- ggplot() +
 ggsave(p, filename = file.path(fig_dir, "ntl_adm2_map_cat.png"),
        height = 6, width = 10)
 
-# Trends -----------------------------------------------------------------------
+# Trends of ADM2 with large increase/decrease ----------------------------------
 p <- ntl_df %>%
   left_join(eq_df, by = "pcode") %>%
   dplyr::filter(adm2_en == "ANTAKYA",

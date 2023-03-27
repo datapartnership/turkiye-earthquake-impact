@@ -17,6 +17,13 @@ parts:
         sections:
           - file: notebooks/mobility/02a-activity.ipynb
           - file: notebooks/mobility/02b-poi-visitation.ipynb
+      - file: notebooks/business-activity-trends/README
+        sections:
+          - file: notebooks/business-activity-trends/01-business-activity-trends.ipynb
+      - file: notebooks/internet-connectivity/README
+        sections:
+          - file: notebooks/internet-connectivity/03a-meta-internet-connectivity.ipynb
+          - file: notebooks/internet-connectivity/03b-ookla-speedtest-analysis.ipynb
       - file: notebooks/nighttime-lights/README
   - caption: Sample Indicators and Insights
     chapters:
