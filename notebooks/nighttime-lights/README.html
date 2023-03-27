@@ -413,11 +413,45 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#implementation">
    Implementation
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-analysis-ready-nighttime-lights-datasets">
+     Create Analysis-Ready Nighttime Lights Datasets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nighttime-lights-analytics">
+     Nighttime Lights Analytics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Data
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#findings">
    Findings
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map-of-nighttime-lights">
+     Map of Nighttime Lights
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-in-nighttime-lights">
+     Changes in Nighttime Lights
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trends-in-nighttime-lights">
+     Trends in Nighttime Lights
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#limitations">
@@ -462,11 +496,45 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#implementation">
    Implementation
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-analysis-ready-nighttime-lights-datasets">
+     Create Analysis-Ready Nighttime Lights Datasets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nighttime-lights-analytics">
+     Nighttime Lights Analytics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Data
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#findings">
    Findings
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map-of-nighttime-lights">
+     Map of Nighttime Lights
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-in-nighttime-lights">
+     Changes in Nighttime Lights
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trends-in-nighttime-lights">
+     Trends in Nighttime Lights
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#limitations">
@@ -502,7 +570,21 @@ title="Print to PDF"
 <section id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h2>
 <p>Code to replicate the analysis can be found <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/ntl/notebooks/nighttime-lights">here</a>.</p>
-<p>The main script (<a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R">_main.R</a>) loads all packages and runs all scripts for the analysis. There are separate scripts for processing the data (e.g., <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R">downloading and cleaning Black Marble data</a>). The scripts download rasters of nighttime lights, then create datasets of average nighttime lights within different units (e.g., administrative level 2 dataset). The following code generates figures and analysis of the data:</p>
+<p>The code largely relies on an R package (<code class="docutils literal notranslate"><span class="pre">blackmarbler</span></code>) that is currently being created to faciliate downloading and processing Black Marble nighttime lights data. The package <a class="reference external" href="https://ramarty.github.io/blackmarbler/">documentation</a> provides some generic examples for how to download data, make a map of nighttime lights, and show trends in nighttime lights. The below code leverages the package to produce analytics for Turkiye.</p>
+<p>The main script (<a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R">_main.R</a>) loads all packages and runs all scripts for the analysis. Below we document scripts for (1) creating analysis-ready datasets and (2) producing analytics (eg, figures) of nighttime lights data.</p>
+<section id="create-analysis-ready-nighttime-lights-datasets">
+<h3>Create Analysis-Ready Nighttime Lights Datasets<a class="headerlink" href="#create-analysis-ready-nighttime-lights-datasets" title="Permalink to this headline">#</a></h3>
+<p>The below code downloads and processes nighttime lights data.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/01_clean_gas_flaring_data.R">01_clean_gas_flaring_data.R</a>: Produces a clean dataset of the locations of gas flaring locations. This dataset is needed because we summarize nighttime lights for (1) all lights, (2) lights excluding gas flaring loations, and (3) lights only in gas flaring locations.</p></li>
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R">02_download_black_marble.R</a>: Downloads Black Marble nighttime lights data for annual, monthly, and daily nighttime lights data. The script exports a geotiff file of nighttime lights for each time period (eg, for each year for annual data). If the script is run at a later date, only data that has not already been downloaded will be downloaded.</p></li>
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/03_aggregate">03_aggregate.R</a>: Aggregates nighttime lights to administrative levels 0, 1 and 2. Calculates average nighttime lights within each administrative unit. The script produces a separate file for each time period. For example, for daily data, a single dataset is saved for aggregated nighttime lights for January 1, 2023, at the ADM2 level. The next script appends files across time periods (eg, days) into a single dataset. Separate files are saved in order to facilitate aggregating new data, as aggregating data can take some time. The script skips aggregating data that has already been processed.</p></li>
+<li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/04_append.R">04_append.R</a>: Appends aggregated data for each time period. Creates a separate datasets for annual, monthly, and daily nighttime lights data.</p></li>
+</ul>
+</section>
+<section id="nighttime-lights-analytics">
+<h3>Nighttime Lights Analytics<a class="headerlink" href="#nighttime-lights-analytics" title="Permalink to this headline">#</a></h3>
+<p>The below code analyzes the nighttime lights data, producing figures and tables.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R">05_map_ntl_annual.R</a>: Produce annual maps of nighttime lights</p></li>
 <li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R">05_maps_ntl_changes.R</a>: Produce maps of changes in nighttime lights from before and after the earthquake.</p></li>
@@ -510,12 +592,16 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_ntl_trends_monthly.R">05_ntl_trends_monthly.R</a>: Produce daily trends in daily nighttime lights for each administrative unit. Administrative units are group by earthquake intensity.</p></li>
 <li><p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_avg_ntl_by_period.R">05_avg_ntl_by_period.R</a>: Create a dataset of average nighttime lights for each administrative unit for different time periods.</p></li>
 </ul>
+</section>
+</section>
+<section id="id1">
+<h2>Data<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>The data for the analysis can be accessed from:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://datacatalog.worldbank.org/search/dataset/0037743">Gas Flaring Location Data</a></p></li>
 <li><p><strong>Black Marble Nighttime Lights:</strong> There are two options to access the data:</p>
 <ul>
-<li><p>The code <a class="reference external" href="https://github.com/datapartnership/syria-economic-monitor/blob/main/notebooks/ntl-analysis/01_download_black_marble.R">here</a> downloads raw data from the <a class="reference external" href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A3/">NASA archive</a> and processes the data for Turkiye—mosaicing raster tiles together to cover Turkiye. Running the code requires a NASA bearer token; the documentation <a class="reference external" href="https://github.com/ramarty/blackmarbler">here</a> describes how to obtain a token.</p></li>
+<li><p>The code <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R">here</a> downloads raw data from the <a class="reference external" href="https://ladsweb.modaps.eosdis.nasa.gov/missions-and-measurements/products/VNP46A3/">NASA archive</a> and processes the data for Turkiye—mosaicing raster tiles together to cover Turkiye. Running the code requires a NASA bearer token; the documentation <a class="reference external" href="https://github.com/ramarty/blackmarbler">here</a> describes how to obtain a token.</p></li>
 <li><p>Pre-processed data can be downloaded from <span class="xref myst">here</span>, using the <strong>Night Time Lights BlackMarble Data</strong></p></li>
 </ul>
 </li>
@@ -523,33 +609,45 @@ title="Print to PDF"
 </section>
 <section id="findings">
 <h2>Findings<a class="headerlink" href="#findings" title="Permalink to this headline">#</a></h2>
+<section id="map-of-nighttime-lights">
+<h3>Map of Nighttime Lights<a class="headerlink" href="#map-of-nighttime-lights" title="Permalink to this headline">#</a></h3>
 <p>The below figure shows nighttime lights from the latest year available. As expected, Turkiye’s largest cities are the most brightly lit – such as Instanbul in the north west.</p>
-<figure class="align-center" id="id1">
+<p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R">This script</a> produces the below figure, where the relevant code is also documented below. Before running the below code, the code from <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R">here</a> needs to be run to load packages and define file paths.</p>
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../../_images/tur_ntl_bm_2021.png"><img alt="../../_images/tur_ntl_bm_2021.png" src="../../_images/tur_ntl_bm_2021.png" style="width: 750.0px; height: 450.0px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Nighttime lights in 2021</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Nighttime lights in 2021</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
+<section id="changes-in-nighttime-lights">
+<h3>Changes in Nighttime Lights<a class="headerlink" href="#changes-in-nighttime-lights" title="Permalink to this headline">#</a></h3>
 <p>The below figures show the change in nighttime lights from the two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figures show that many locations saw an increase in nighttime lights immediately after the earthquake. Increases in nighttime lights could result from lights generated from rescue efforts.</p>
-<figure class="align-center" id="id2">
+<p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R">This script</a> produces the below two figures, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level. Before running the below code, the code from <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R">here</a> needs to be run to load packages and define file paths.</p>
+<figure class="align-center" id="id3">
 <img alt="../../_images/ntl_adm2_map_raw.png" src="../../_images/ntl_adm2_map_raw.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<figure class="align-center" id="id3">
+<figure class="align-center" id="id4">
 <img alt="../../_images/ntl_adm2_map_cat.png" src="../../_images/ntl_adm2_map_cat.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
+<section id="trends-in-nighttime-lights">
+<h3>Trends in Nighttime Lights<a class="headerlink" href="#trends-in-nighttime-lights" title="Permalink to this headline">#</a></h3>
 <p>The below figure shows daily trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher). In most locations, nighttime lights remains relatively unchanged. However, Antakya—which had the largest nighttime lights—saw a sharp reduction in nighttime lights.</p>
-<figure class="align-center" id="id4">
+<p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_ntl_trends_daily.R">This script</a> produces the below figure, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using. Before running the below code, the code from <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R">here</a> needs to be run to load packages and define file paths.</p>
+<figure class="align-center" id="id5">
 <img alt="../../_images/ntl_trends_daily_adm2_mi9.png" src="../../_images/ntl_trends_daily_adm2_mi9.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher)</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher)</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">#</a></h2>
