@@ -19,7 +19,7 @@ For this project, sample indicators have been derived and aggregated at the Admi
 * Government-Reported Number of Collapsed and Heavily Damaged Buildings
 
 
-### Sample indicator: Observing change in Business Activity for the manufacturing industry 
+### Sample indicator: Observing change in Business Activity for the Retail Sector (based on Meta Business Activity Index)
 
 By overlaying multiple datasets together, it is possible to study changes in business activity further. For instance, in the below map, we can see the changes in Business Activity for the retail sector overlayed with damaged buildings information from the MoECC. Some admin 2 regions' retail activity remained relatively unaffected immediatrly after the earthquake despite damage to buildings. 
 
