@@ -11,6 +11,7 @@ parts:
   - caption: Foundational Datasets
     chapters:
       - file: docs/foundational_datasets_and_data_products.md
+      - file: notebooks/earthquake-intensity/earthquake_intensity.ipynb
   - caption: Data Products
     chapters:
       - file: notebooks/mobility/README
