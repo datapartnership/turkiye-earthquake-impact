@@ -26,6 +26,7 @@ parts:
           - file: notebooks/mobility/02a-activity.ipynb
           - file: notebooks/mobility/02b-poi-visitation.ipynb
       - file: notebooks/nighttime-lights/README
+      - file: notebooks/ground-surveys/premise.ipynb
   - caption: Sample Indicators and Insights
     chapters:
       - file: docs/sample-indicators
