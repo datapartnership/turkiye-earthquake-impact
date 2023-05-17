@@ -23,8 +23,8 @@ parts:
           - file: notebooks/internet-connectivity/03b-ookla-speedtest-analysis.ipynb
       - file: notebooks/mobility/README
         sections:
-          - file: notebooks/mobility/02a-activity.ipynb
-          - file: notebooks/mobility/02b-poi-visitation.ipynb
+          - file: notebooks/mobility/activity.ipynb
+          - file: notebooks/mobility/visits.ipynb
       - file: notebooks/nighttime-lights/README
       - file: notebooks/surveys/README
         sections:
