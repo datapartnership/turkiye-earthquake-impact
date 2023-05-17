@@ -10,8 +10,8 @@ BEARER <- read_csv("~/Desktop/bearer_bm.csv") %>% pull(token)
 # there.
 
 ## Grab polygons
-syr_sp <- gadm(country = "SYR", level=0, path = tempdir()) 
-tur_sp <- gadm(country = "TUR", level=0, path = tempdir()) 
+syr_sp <- gadm(country = "SYR", level=0, path = tempdir())
+tur_sp <- gadm(country = "TUR", level=0, path = tempdir())
 
 ## Combine Syria and Turkey into one polygon
 roi_sp <- rbind(syr_sp, tur_sp)

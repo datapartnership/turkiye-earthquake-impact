@@ -5,11 +5,10 @@
 #### Root paths
 if(Sys.info()[["user"]] == "robmarty"){
   git_dir  <- "~/Documents/Github/turkiye-earthquake-impact"
-  data_dir <- file.path("~", "Turkiye Earthquake Impact", "Data")
   
   data_dir <- file.path("~", "Dropbox", "World Bank", "Side Work", 
                         "Turkiye Earthquake Impact", "Data")
-} 
+}
 
 #### Data Paths from Root
 gas_flare_dir <- file.path(data_dir, "Global Gas Flaring")

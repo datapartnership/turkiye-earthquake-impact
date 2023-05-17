@@ -5,7 +5,25 @@ parts:
   - caption: Strategic Brief
     chapters:
       - file: reports/turkiye-earthquake-strategic-brief.md
+  - caption: Introduction to Data Goods
+    chapters:
+      - file: docs/introduction_to_data_goods
+  - caption: Foundational Datasets
+    chapters:
+      - file: docs/foundational_datasets_and_data_products.md
   - caption: Data Products
     chapters:
       - file: notebooks/mobility/README
+        sections:
+          - file: notebooks/mobility/02a-activity.ipynb
+          - file: notebooks/mobility/02b-poi-visitation.ipynb
+      - file: notebooks/business-activity-trends/README
+        sections:
+          - file: notebooks/business-activity-trends/01-business-activity-trends.ipynb
       - file: notebooks/nighttime-lights/README
+  - caption: Sample Indicators and Insights
+    chapters:
+      - file: docs/sample-indicators
+  - caption: Acknowledgements
+    chapters:
+      - file: docs/team

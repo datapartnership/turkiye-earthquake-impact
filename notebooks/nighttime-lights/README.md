@@ -12,15 +12,15 @@ We extract average nighttime lights within each administrative unit in Turkiye. 
 
 ## Implementation
 
-Code to replicate the analysis can be found [here](https://github.com/datapartnership/turkiye-earthquake-impact/tree/ntl/notebooks/nighttime-lights). 
+Code to replicate the analysis can be found [here](https://github.com/datapartnership/turkiye-earthquake-impact/tree/ntl/notebooks/nighttime-lights).
 
-The code largely relies on an R package (`blackmarbler`) that is currently being created to faciliate downloading and processing Black Marble nighttime lights data. The package [documentation](https://ramarty.github.io/blackmarbler/) provides some generic examples for how to download data, make a map of nighttime lights, and show trends in nighttime lights. The below code leverages the package to produce analytics for Turkiye. 
+The code largely relies on an R package (`blackmarbler`) that is currently being created to faciliate downloading and processing Black Marble nighttime lights data. The package [documentation](https://ramarty.github.io/blackmarbler/) provides some generic examples for how to download data, make a map of nighttime lights, and show trends in nighttime lights. The below code leverages the package to produce analytics for Turkiye.
 
 The main script ([_main.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/_main.R)) loads all packages and runs all scripts for the analysis. Below we document scripts for (1) creating analysis-ready datasets and (2) producing analytics (eg, figures) of nighttime lights data.
 
 ### Create Analysis-Ready Nighttime Lights Datasets
 
-The below code downloads and processes nighttime lights data. 
+The below code downloads and processes nighttime lights data.
 
 * [01_clean_gas_flaring_data.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/01_clean_gas_flaring_data.R): Produces a clean dataset of the locations of gas flaring locations. This dataset is needed because we summarize nighttime lights for (1) all lights, (2) lights excluding gas flaring loations, and (3) lights only in gas flaring locations.
 * [02_download_black_marble.R](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/02_download_black_marble.R): Downloads Black Marble nighttime lights data for annual, monthly, and daily nighttime lights data. The script exports a geotiff file of nighttime lights for each time period (eg, for each year for annual data). If the script is run at a later date, only data that has not already been downloaded will be downloaded.
@@ -59,20 +59,20 @@ The below figure shows nighttime lights from the latest year available. As expec
 
 ```{r}
 #### Load Turkiye polygon
-adm2_sf <- read_sf(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) 
+adm2_sf <- read_sf(dsn = file.path(adm_dir, "tur_polbna_adm2.shp"))
 
 #### Load and prep NTL raster
 ## Load raster
 r <- raster(file.path(ntl_bm_dir, "FinalData", "VNP46A4_rasters", "VNP46A4_t2021.tif")
 
 ## Crop/mask to Turkiye polygon
-r <- r %>% crop(adm2_sf) %>% mask(adm2_sf) 
+r <- r %>% crop(adm2_sf) %>% mask(adm2_sf)
 
 ## Convert to dataframe for plotting with ggplot
 r_df <- rasterToPoints(r, spatial = TRUE) %>% as.data.frame()
 names(r_df) <- c("value", "x", "y")
 
-## Remove very low values of NTL; can be considered noise 
+## Remove very low values of NTL; can be considered noise
 r_df$value[r_df$value <= 2] <- 0
 
 ## Distribution is skewed, so log
@@ -80,15 +80,15 @@ r_df$value_adj <- log(r_df$value+1)
 
 #### Make map
 ggplot() +
-    geom_raster(data = r_df, 
-                aes(x = x, y = y, 
+    geom_raster(data = r_df,
+                aes(x = x, y = y,
                     fill = value_adj)) +
     scale_fill_gradient2(low = "black",
                          mid = "yellow",
                          high = "red",
                          midpoint = 4.5) +
     labs(title = paste0("Nighttime Lights ", year_i)) +
-    coord_quickmap() + 
+    coord_quickmap() +
     theme_void() +
     theme(plot.title = element_text(face = "bold", hjust = 0.5),
           legend.position = "none")
@@ -118,35 +118,35 @@ eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max
 
 #### Prep data
 ntl_sum_df <- ntl_df %>%
-  
+
   ## Classify time as two weeks before/after
   dplyr::mutate(period = case_when(
     date %in% ymd("2023-01-23"):ymd("2023-02-05") ~ "ntl_before",
     date %in% ymd("2023-02-07"):ymd("2023-02-20") ~ "ntl_after"
   )) %>%
-  
+
   ## Average NTL by ADM2 and time period (two weeks before / after)
   group_by(period, pcode) %>%
   dplyr::summarise(ntl_bm_mean = mean(ntl_bm_mean)) %>%
-  
+
   ## Reshape from long to wide
   ungroup() %>%
   pivot_wider(id_cols = pcode, names_from = period, values_from = ntl_bm_mean) %>%
-  
+
   ## Determine % change and classify as large increase/decrease
   mutate(ntl_pchange = (ntl_after - ntl_before) / ntl_before * 100) %>%
-  
+
   dplyr::mutate(change_type = case_when(
     ntl_pchange >= 10 ~ "> 10% Increase",
     ntl_pchange <= -10 ~ "> 10% Decrease",
     TRUE ~ "Small change"
   )) %>%
-  
+
   ## Merge in earthquake data and determine max intensity
   left_join(eq_df, by = "pcode") %>%
-  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7, 
-                       mmi_feb06_7p5, mmi_feb20_6p3, 
-                       mmi_feb06_7p8, mmi_feb06_6p0)) 
+  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7,
+                       mmi_feb06_7p5, mmi_feb20_6p3,
+                       mmi_feb06_7p8, mmi_feb06_6p0))
 
 ## Merge in percent change data to ADM2 spatial file
 adm2_sf <- adm2_sf %>%
@@ -171,7 +171,7 @@ ggplot() +
                        breaks = c(-25, 0, 25, 50),
                        labels = c("-25", "0", "25", ">50"),
                        limits = c(-26, 51))
-                       
+
 #### Make map of ADM2s with >10% increase/decrease
 ggplot() +
   geom_sf(data = adm0_sf,
@@ -218,8 +218,8 @@ eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max
 ## Merge data
 df <- ntl_df %>%
   left_join(eq_df, by = "pcode")
-  
-  
+
+
 #### Make figure
 df %>%
     dplyr::filter(date >= ymd("2023-01-01"),
@@ -232,7 +232,7 @@ df %>%
          title = "Trends in Nighttime Lights Across ADM2",
          subtitle = paste0("MI: ", mi)) +
     facet_wrap(~adm2_en,
-               scales = "free_y") 
+               scales = "free_y")
 ```
 
 #### Nighttime lights trends: by earthquake intensity (magnitude), averaged across administrative units

@@ -7,11 +7,11 @@
 
 # Load data --------------------------------------------------------------------
 ## ADM0 Boundary
-adm0_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbnda_adm0.shp")) %>% 
+adm0_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbnda_adm0.shp")) %>%
   st_as_sf()
 
 ## ADM2 Boundary
-adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>% 
+adm2_sf <- readOGR(dsn = file.path(adm_dir, "tur_polbna_adm2.shp")) %>%
   st_as_sf() %>%
   dplyr::select(pcode)
 
@@ -23,35 +23,35 @@ eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max
 
 # Prep data --------------------------------------------------------------------
 ntl_sum_df <- ntl_df %>%
-  
+
   ## Classify time as two weeks before/after
   dplyr::mutate(period = case_when(
     date %in% ymd("2023-01-23"):ymd("2023-02-05") ~ "ntl_before",
     date %in% ymd("2023-02-07"):ymd("2023-02-20") ~ "ntl_after"
   )) %>%
-  
+
   ## Average NTL by ADM2 and time period (two weeks before / after)
   group_by(period, pcode) %>%
   dplyr::summarise(ntl_bm_mean = mean(ntl_bm_mean)) %>%
-  
+
   ## Reshape from long to wide
   ungroup() %>%
   pivot_wider(id_cols = pcode, names_from = period, values_from = ntl_bm_mean) %>%
-  
+
   ## Determine % change and classify as large increase/decrease
   mutate(ntl_pchange = (ntl_after - ntl_before) / ntl_before * 100) %>%
-  
+
   dplyr::mutate(change_type = case_when(
     ntl_pchange >= 10 ~ "> 10% Increase",
     ntl_pchange <= -10 ~ "> 10% Decrease",
     TRUE ~ "Small change"
   )) %>%
-  
+
   ## Merge in earthquake data and determine max intensity
   left_join(eq_df, by = "pcode") %>%
-  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7, 
-                       mmi_feb06_7p5, mmi_feb20_6p3, 
-                       mmi_feb06_7p8, mmi_feb06_6p0)) 
+  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7,
+                       mmi_feb06_7p5, mmi_feb20_6p3,
+                       mmi_feb06_7p8, mmi_feb06_6p0))
 
 ## Merge in percent change data to ADM2 spatial file
 adm2_sf <- adm2_sf %>%

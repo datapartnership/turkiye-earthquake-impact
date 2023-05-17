@@ -22,7 +22,7 @@ execute:
     execute_notebooks: force
     allow_errors: true
     exclude_patterns:
-        - notebooks/*.ipynb
+        - notebooks/**/*.ipynb
 
 sphinx:
     config:
