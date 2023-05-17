@@ -203,12 +203,14 @@ Change in nighttime lights from two weeks before the earthquake (February 6, 202
 
 ### Trends in Nighttime Lights
 
-The below figure shows daily trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher). In most locations, nighttime lights remains relatively unchanged. However, Antakya---which had the largest nighttime lights---saw a sharp reduction in nighttime lights.
+The below figures shows daily trends in nighttime lights, averaged within administrative units. The first figures further average nighttime lights by the earthquake intensity experienced by administrative units. The following figures show nighttime lights for individual administrative units. Some locations, such as Antakya (which had the largest nighttime lights), saw a sharp reduction in nighttime lights. Others see large increases in nighttime lights, which likely reflects lights from rescue efforts.
 
 [This script](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_ntl_trends_daily.R) produces the below figure, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
 ```{r}
+
 #### Load and prepare data
+
 ## Daily NTL at ADM2 Level
 ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
 eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max.csv"))
@@ -233,11 +235,50 @@ df %>%
                scales = "free_y") 
 ```
 
+#### Nighttime lights trends: by earthquake intensity (magnitude), averaged across administrative units
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_miall_column.png
+---
+align: center
+---
+Trends in nighttime lights. Average across administrative units, by earthquake intensity (magnitude)
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_miall_line.png
+---
+align: center
+---
+Trends in nighttime lights. Average across administrative units, by earthquake intensity (magnitude)
+```
+
+#### Nighttime lights trends: by earthquake intensity (magnitude)
+
 ```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi9.png
 ---
 align: center
 ---
 Trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher)
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi8.png
+---
+align: center
+---
+Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 8
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi7.png
+---
+align: center
+---
+Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 7
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi6.png
+---
+align: center
+---
+Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 6
 ```
 
 ## Limitations
