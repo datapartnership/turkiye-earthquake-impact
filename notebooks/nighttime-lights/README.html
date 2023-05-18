@@ -418,8 +418,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#findings">Findings</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-nighttime-lights">Map of Nighttime Lights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-nighttime-lights">Changes in Nighttime Lights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-nighttime-lights">Trends in Nighttime Lights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-nighttime-lights">Changes in Nighttime Lights</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#percent-change">Percent Change</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#change">+/-10% Change</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-nighttime-lights">Trends in Nighttime Lights</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nighttime-lights-trends-by-earthquake-intensity-magnitude-averaged-across-administrative-units">Nighttime lights trends: by earthquake intensity (magnitude), averaged across administrative units</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nighttime-lights-trends-by-earthquake-intensity-magnitude">Nighttime lights trends: by earthquake intensity (magnitude)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
@@ -492,42 +500,6 @@ document.write(`
 <h3>Map of Nighttime Lights<a class="headerlink" href="#map-of-nighttime-lights" title="Permalink to this heading">#</a></h3>
 <p>The below figure shows nighttime lights from the latest year available. As expected, Turkiye’s largest cities are the most brightly lit – such as Instanbul in the north west.</p>
 <p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R">This script</a> produces the below figure, where the relevant code is also documented below. Before running the below code, the code from <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R">here</a> needs to be run to load packages and define file paths.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#### Load Turkiye polygon
-adm2_sf &lt;- read_sf(dsn = file.path(adm_dir, &quot;tur_polbna_adm2.shp&quot;))
-
-#### Load and prep NTL raster
-## Load raster
-r &lt;- raster(file.path(ntl_bm_dir, &quot;FinalData&quot;, &quot;VNP46A4_rasters&quot;, &quot;VNP46A4_t2021.tif&quot;)
-
-## Crop/mask to Turkiye polygon
-r &lt;- r %&gt;% crop(adm2_sf) %&gt;% mask(adm2_sf)
-
-## Convert to dataframe for plotting with ggplot
-r_df &lt;- rasterToPoints(r, spatial = TRUE) %&gt;% as.data.frame()
-names(r_df) &lt;- c(&quot;value&quot;, &quot;x&quot;, &quot;y&quot;)
-
-## Remove very low values of NTL; can be considered noise
-r_df$value[r_df$value &lt;= 2] &lt;- 0
-
-## Distribution is skewed, so log
-r_df$value_adj &lt;- log(r_df$value+1)
-
-#### Make map
-ggplot() +
-    geom_raster(data = r_df,
-                aes(x = x, y = y,
-                    fill = value_adj)) +
-    scale_fill_gradient2(low = &quot;black&quot;,
-                         mid = &quot;yellow&quot;,
-                         high = &quot;red&quot;,
-                         midpoint = 4.5) +
-    labs(title = paste0(&quot;Nighttime Lights &quot;, year_i)) +
-    coord_quickmap() +
-    theme_void() +
-    theme(plot.title = element_text(face = &quot;bold&quot;, hjust = 0.5),
-          legend.position = &quot;none&quot;)
-</pre></div>
-</div>
 <figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../../_images/tur_ntl_bm_2021.png"><img alt="../../_images/tur_ntl_bm_2021.png" src="../../_images/tur_ntl_bm_2021.png" style="width: 750.0px; height: 450.0px;" /></a>
 <figcaption>
@@ -539,132 +511,95 @@ ggplot() +
 <h3>Changes in Nighttime Lights<a class="headerlink" href="#changes-in-nighttime-lights" title="Permalink to this heading">#</a></h3>
 <p>The below figures show the change in nighttime lights from the two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figures show that many locations saw an increase in nighttime lights immediately after the earthquake. Increases in nighttime lights could result from lights generated from rescue efforts.</p>
 <p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R">This script</a> produces the below two figures, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level. Before running the below code, the code from <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R">here</a> needs to be run to load packages and define file paths.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#### Load data
-## Daily NTL at ADM2
-ntl_df &lt;- readRDS(file.path(ntl_bm_dir, &quot;FinalData&quot;, &quot;aggregated&quot;, &quot;adm2_VNP46A2.Rds&quot;))
-
-## Earthquake intensity data
-eq_df &lt;- read_csv(file.path(eq_usgs_dir, &quot;turkiye_admn2_earthquake_intensity_max.csv&quot;))
-
-#### Prep data
-ntl_sum_df &lt;- ntl_df %&gt;%
-
-  ## Classify time as two weeks before/after
-  dplyr::mutate(period = case_when(
-    date %in% ymd(&quot;2023-01-23&quot;):ymd(&quot;2023-02-05&quot;) ~ &quot;ntl_before&quot;,
-    date %in% ymd(&quot;2023-02-07&quot;):ymd(&quot;2023-02-20&quot;) ~ &quot;ntl_after&quot;
-  )) %&gt;%
-
-  ## Average NTL by ADM2 and time period (two weeks before / after)
-  group_by(period, pcode) %&gt;%
-  dplyr::summarise(ntl_bm_mean = mean(ntl_bm_mean)) %&gt;%
-
-  ## Reshape from long to wide
-  ungroup() %&gt;%
-  pivot_wider(id_cols = pcode, names_from = period, values_from = ntl_bm_mean) %&gt;%
-
-  ## Determine % change and classify as large increase/decrease
-  mutate(ntl_pchange = (ntl_after - ntl_before) / ntl_before * 100) %&gt;%
-
-  dplyr::mutate(change_type = case_when(
-    ntl_pchange &gt;= 10 ~ &quot;&gt; 10% Increase&quot;,
-    ntl_pchange &lt;= -10 ~ &quot;&gt; 10% Decrease&quot;,
-    TRUE ~ &quot;Small change&quot;
-  )) %&gt;%
-
-  ## Merge in earthquake data and determine max intensity
-  left_join(eq_df, by = &quot;pcode&quot;) %&gt;%
-  mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7,
-                       mmi_feb06_7p5, mmi_feb20_6p3,
-                       mmi_feb06_7p8, mmi_feb06_6p0))
-
-## Merge in percent change data to ADM2 spatial file
-adm2_sf &lt;- adm2_sf %&gt;%
-  left_join(ntl_sum_df, by = &quot;pcode&quot;)
-
-## Deal with outliers
-adm2_sf$ntl_pchange[adm2_sf$ntl_pchange &gt; 50] &lt;- 50
-
-#### Make map of % changes
-ggplot() +
-  geom_sf(data = adm0_sf,
-          fill = &quot;gray50&quot;) +
-  geom_sf(data = adm2_sf[adm2_sf$mi_max &gt;= 5,],
-          aes(fill = ntl_pchange)) +
-  geom_sf(data = adm2_sf[adm2_sf$mi_max &gt;= 6,] %&gt;% st_union(),
-          color = &quot;black&quot;,
-          size = 0.75,
-          fill = NA) +
-  theme_void() +
-  labs(fill = &quot;Change in\nNighttime\nLights&quot;) +
-  scale_fill_distiller(palette = &quot;Spectral&quot;,
-                       breaks = c(-25, 0, 25, 50),
-                       labels = c(&quot;-25&quot;, &quot;0&quot;, &quot;25&quot;, &quot;&gt;50&quot;),
-                       limits = c(-26, 51))
-
-#### Make map of ADM2s with &gt;10% increase/decrease
-ggplot() +
-  geom_sf(data = adm0_sf,
-          fill = &quot;gray50&quot;) +
-  geom_sf(data = adm2_sf[adm2_sf$mi_max &gt;= 5,],
-          aes(fill = factor(change_type))) +
-  geom_sf(data = adm2_sf[adm2_sf$mi_max &gt;= 6,] %&gt;% st_union(),
-          color = &quot;black&quot;,
-          size = 0.75,
-          fill = NA) +
-  theme_void() +
-  labs(fill = &quot;Change in\nNighttime\nLights&quot;) +
-  scale_fill_manual(values = c(&quot;dodgerblue&quot;, &quot;darkorange&quot;, &quot;gray&quot;))
-</pre></div>
-</div>
+<section id="percent-change">
+<h4>Percent Change<a class="headerlink" href="#percent-change" title="Permalink to this heading">#</a></h4>
 <figure class="align-center" id="id3">
-<img alt="../../_images/ntl_adm2_map_raw.png" src="../../_images/ntl_adm2_map_raw.png" />
+<img alt="../../_images/ntl_adm2_map_ntl_3day_pc.png" src="../../_images/ntl_adm2_map_ntl_3day_pc.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to three days after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id4">
-<img alt="../../_images/ntl_adm2_map_cat.png" src="../../_images/ntl_adm2_map_cat.png" />
+<img alt="../../_images/ntl_adm2_map_ntl_2week_pc.png" src="../../_images/ntl_adm2_map_ntl_2week_pc.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<figure class="align-center" id="id5">
+<img alt="../../_images/ntl_adm2_map_ntl_march_pc.png" src="../../_images/ntl_adm2_map_ntl_march_pc.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to March. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="change">
+<h4>+/-10% Change<a class="headerlink" href="#change" title="Permalink to this heading">#</a></h4>
+<figure class="align-center" id="id6">
+<img alt="../../_images/ntl_adm2_map_ntl_3day_chng_bin.png" src="../../_images/ntl_adm2_map_ntl_3day_chng_bin.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to three days after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id7">
+<img alt="../../_images/ntl_adm2_map_ntl_2week_chng_bin.png" src="../../_images/ntl_adm2_map_ntl_2week_chng_bin.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id8">
+<img alt="../../_images/ntl_adm2_map_ntl_march_chng_bin.png" src="../../_images/ntl_adm2_map_ntl_march_chng_bin.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to March. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 <section id="trends-in-nighttime-lights">
 <h3>Trends in Nighttime Lights<a class="headerlink" href="#trends-in-nighttime-lights" title="Permalink to this heading">#</a></h3>
-<p>The below figure shows daily trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher). In most locations, nighttime lights remains relatively unchanged. However, Antakya—which had the largest nighttime lights—saw a sharp reduction in nighttime lights.</p>
+<p>The below figures shows daily trends in nighttime lights, averaged within administrative units. The first figures further average nighttime lights by the earthquake intensity experienced by administrative units. The following figures show nighttime lights for individual administrative units. Some locations, such as Antakya (which had the largest nighttime lights), saw a sharp reduction in nighttime lights. Others see large increases in nighttime lights, which likely reflects lights from rescue efforts.</p>
 <p><a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_ntl_trends_daily.R">This script</a> produces the below figure, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using. Before running the below code, the code from <a class="reference external" href="https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R">here</a> needs to be run to load packages and define file paths.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Load and prepare data</span>
-<span class="c1">## Daily NTL at ADM2 Level</span>
-<span class="n">ntl_df</span> <span class="o">&lt;-</span> <span class="n">readRDS</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">ntl_bm_dir</span><span class="p">,</span> <span class="s2">&quot;FinalData&quot;</span><span class="p">,</span> <span class="s2">&quot;aggregated&quot;</span><span class="p">,</span> <span class="s2">&quot;adm2_VNP46A2.Rds&quot;</span><span class="p">))</span>
-<span class="n">eq_df</span> <span class="o">&lt;-</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">eq_usgs_dir</span><span class="p">,</span> <span class="s2">&quot;turkiye_admn2_earthquake_intensity_max.csv&quot;</span><span class="p">))</span>
-
-<span class="c1">## Merge data</span>
-<span class="n">df</span> <span class="o">&lt;-</span> <span class="n">ntl_df</span> <span class="o">%&gt;%</span>
-  <span class="n">left_join</span><span class="p">(</span><span class="n">eq_df</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;pcode&quot;</span><span class="p">)</span>
-
-
-<span class="c1">#### Make figure</span>
-<span class="n">df</span> <span class="o">%&gt;%</span>
-    <span class="n">dplyr</span><span class="p">::</span><span class="nb">filter</span><span class="p">(</span><span class="n">date</span> <span class="o">&gt;=</span> <span class="n">ymd</span><span class="p">(</span><span class="s2">&quot;2023-01-01&quot;</span><span class="p">),</span>
-                  <span class="n">floor</span><span class="p">(</span><span class="n">mmi_feb06_7p8</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span> <span class="o">%&gt;%</span>
-    <span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span>
-    <span class="n">geom_col</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">date</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ntl_bm_mean</span><span class="p">))</span> <span class="o">+</span>
-    <span class="n">geom_vline</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="n">ymd</span><span class="p">(</span><span class="s2">&quot;2023-02-06&quot;</span><span class="p">),</span>
-               <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="o">+</span>
-    <span class="n">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;NTL&quot;</span><span class="p">,</span>
-         <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Trends in Nighttime Lights Across ADM2&quot;</span><span class="p">,</span>
-         <span class="n">subtitle</span> <span class="o">=</span> <span class="n">paste0</span><span class="p">(</span><span class="s2">&quot;MI: &quot;</span><span class="p">,</span> <span class="n">mi</span><span class="p">))</span> <span class="o">+</span>
-    <span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">adm2_en</span><span class="p">,</span>
-               <span class="n">scales</span> <span class="o">=</span> <span class="s2">&quot;free_y&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-center" id="id5">
-<img alt="../../_images/ntl_trends_daily_adm2_mi9.png" src="../../_images/ntl_trends_daily_adm2_mi9.png" />
+<section id="nighttime-lights-trends-by-earthquake-intensity-magnitude-averaged-across-administrative-units">
+<h4>Nighttime lights trends: by earthquake intensity (magnitude), averaged across administrative units<a class="headerlink" href="#nighttime-lights-trends-by-earthquake-intensity-magnitude-averaged-across-administrative-units" title="Permalink to this heading">#</a></h4>
+<figure class="align-center" id="id9">
+<img alt="../../_images/ntl_trends_daily_adm2_miall_column.png" src="../../_images/ntl_trends_daily_adm2_miall_column.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher)</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Trends in nighttime lights. Average across administrative units, by earthquake intensity (magnitude)</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<figure class="align-center" id="id10">
+<img alt="../../_images/ntl_trends_daily_adm2_miall_line.png" src="../../_images/ntl_trends_daily_adm2_miall_line.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Trends in nighttime lights. Average across administrative units, by earthquake intensity (magnitude)</span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="nighttime-lights-trends-by-earthquake-intensity-magnitude">
+<h4>Nighttime lights trends: by earthquake intensity (magnitude)<a class="headerlink" href="#nighttime-lights-trends-by-earthquake-intensity-magnitude" title="Permalink to this heading">#</a></h4>
+<figure class="align-center" id="id11">
+<img alt="../../_images/ntl_trends_daily_adm2_mi9.png" src="../../_images/ntl_trends_daily_adm2_mi9.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher)</span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id12">
+<img alt="../../_images/ntl_trends_daily_adm2_mi8.png" src="../../_images/ntl_trends_daily_adm2_mi8.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 8</span><a class="headerlink" href="#id12" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id13">
+<img alt="../../_images/ntl_trends_daily_adm2_mi7.png" src="../../_images/ntl_trends_daily_adm2_mi7.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 7</span><a class="headerlink" href="#id13" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id14">
+<img alt="../../_images/ntl_trends_daily_adm2_mi6.png" src="../../_images/ntl_trends_daily_adm2_mi6.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 6</span><a class="headerlink" href="#id14" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 </section>
 <section id="limitations">
@@ -755,8 +690,16 @@ ggplot() +
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#findings">Findings</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#map-of-nighttime-lights">Map of Nighttime Lights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-nighttime-lights">Changes in Nighttime Lights</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-nighttime-lights">Trends in Nighttime Lights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-in-nighttime-lights">Changes in Nighttime Lights</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#percent-change">Percent Change</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#change">+/-10% Change</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trends-in-nighttime-lights">Trends in Nighttime Lights</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nighttime-lights-trends-by-earthquake-intensity-magnitude-averaged-across-administrative-units">Nighttime lights trends: by earthquake intensity (magnitude), averaged across administrative units</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nighttime-lights-trends-by-earthquake-intensity-magnitude">Nighttime lights trends: by earthquake intensity (magnitude)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a></li>
@@ -786,7 +729,7 @@ By World Bank Development Data Group
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on May 17, 2023.
+  Last updated on May 18, 2023.
   <br/>
 </p>
   </div>

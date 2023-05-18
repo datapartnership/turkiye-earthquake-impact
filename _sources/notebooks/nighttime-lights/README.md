@@ -57,7 +57,7 @@ The below figure shows nighttime lights from the latest year available. As expec
 
 [This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_map_ntl_annual.R) produces the below figure, where the relevant code is also documented below. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
-```
+```{r}
 #### Load Turkiye polygon
 adm2_sf <- read_sf(dsn = file.path(adm_dir, "tur_polbna_adm2.shp"))
 
@@ -108,7 +108,7 @@ The below figures show the change in nighttime lights from the two weeks before 
 
 [This script](https://github.com/datapartnership/turkiye-earthquake-impact/tree/main/notebooks/nighttime-lights/05_maps_ntl_changes.R) produces the below two figures, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
-```
+```{r}
 #### Load data
 ## Daily NTL at ADM2
 ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
@@ -187,28 +187,62 @@ ggplot() +
   scale_fill_manual(values = c("dodgerblue", "darkorange", "gray"))
 ```
 
-```{figure} ../../reports/figures/ntl_adm2_map_raw.png
+#### Percent Change
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_3day_pc.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to three days after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_2week_pc.png
 ---
 align: center
 ---
 Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
 ```
 
-```{figure} ../../reports/figures/ntl_adm2_map_cat.png
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_march_pc.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to March. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+#### +/-10% Change
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_3day_chng_bin.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to three days after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_2week_chng_bin.png
 ---
 align: center
 ---
 Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_march_chng_bin.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to March. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
 ```
 
 ### Trends in Nighttime Lights
 
-The below figure shows daily trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher). In most locations, nighttime lights remains relatively unchanged. However, Antakya---which had the largest nighttime lights---saw a sharp reduction in nighttime lights.
+The below figures shows daily trends in nighttime lights, averaged within administrative units. The first figures further average nighttime lights by the earthquake intensity experienced by administrative units. The following figures show nighttime lights for individual administrative units. Some locations, such as Antakya (which had the largest nighttime lights), saw a sharp reduction in nighttime lights. Others see large increases in nighttime lights, which likely reflects lights from rescue efforts.
 
 [This script](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/05_ntl_trends_daily.R) produces the below figure, where the relevant code is also documented below. The code relies on daily nighttime lights data that has been aggregated to the ADM2 level; this dataset is produced using. Before running the below code, the code from [here](https://github.com/datapartnership/turkiye-earthquake-impact/blob/ntl/notebooks/nighttime-lights/_main.R) needs to be run to load packages and define file paths.
 
-```
+```{r}
+
 #### Load and prepare data
+
 ## Daily NTL at ADM2 Level
 ntl_df <- readRDS(file.path(ntl_bm_dir, "FinalData", "aggregated", "adm2_VNP46A2.Rds"))
 eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max.csv"))
@@ -233,11 +267,50 @@ df %>%
                scales = "free_y")
 ```
 
+#### Nighttime lights trends: by earthquake intensity (magnitude), averaged across administrative units
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_miall_column.png
+---
+align: center
+---
+Trends in nighttime lights. Average across administrative units, by earthquake intensity (magnitude)
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_miall_line.png
+---
+align: center
+---
+Trends in nighttime lights. Average across administrative units, by earthquake intensity (magnitude)
+```
+
+#### Nighttime lights trends: by earthquake intensity (magnitude)
+
 ```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi9.png
 ---
 align: center
 ---
 Trends in nighttime lights for administrative units where there was the largest earthquake intensity (a magnitude of 9 or higher)
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi8.png
+---
+align: center
+---
+Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 8
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi7.png
+---
+align: center
+---
+Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 7
+```
+
+```{figure} ../../reports/figures/ntl_trends_daily_adm2_mi6.png
+---
+align: center
+---
+Trends in nighttime lights for administrative units where there was the an earthquake magnitude of 6
 ```
 
 ## Limitations
