@@ -16,15 +16,27 @@ html:
     use_repository_button: true
     use_issues_button: true
     baseurl: https://datapartnership.github.io/turkiye-earthquake-impact
+    extra_footer: |
+        <div>
+            <b>All content (unless otherwise specified) is subject to the <a href="https://raw.githubusercontent.com/worldbank/template/main/LICENSE">World Bank Master Community License Agreement.</a></b>
+        </div>
+    google_analytics_id: G-WGD658606P
 
+#######################################################################################
 # Execution settings
 execute:
-    execute_notebooks: force
-    allow_errors: true
-    exclude_patterns:
-        - notebooks/**/*.ipynb
+    execute_notebooks: "off"
 
+#######################################################################################
+# Bibliography settings
+bibtex_bibfiles:
+    - docs/bibliography.bib
+
+#######################################################################################
+# Sphinx settings
 sphinx:
     config:
-        html_show_copyright: false
+        bibtex_reference_style: author_year
+        mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
         html_last_updated_fmt: "%b %d, %Y"
+        html_show_copyright: false

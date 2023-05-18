@@ -23,6 +23,7 @@ eq_df <- read_csv(file.path(eq_usgs_dir, "turkiye_admn2_earthquake_intensity_max
 
 # Prep data --------------------------------------------------------------------
 ntl_sum_df <- ntl_df %>%
+
   group_by(pcode) %>%
   summarise(ntl_base = mean(ntl_bm_mean[date %in% ymd("2023-01-23"):ymd("2023-02-05")]),
             ntl_3day = mean(ntl_bm_mean[date %in% ymd("2023-02-07"):ymd("2023-02-09")]),
@@ -51,43 +52,19 @@ ntl_sum_df <- ntl_df %>%
     TRUE ~ "Small change"
   )) %>%
   
+
   ## Merge in earthquake data and determine max intensity
   left_join(eq_df, by = "pcode") %>%
   mutate(mi_max = pmax(mmi_feb06_6p3, mmi_feb06_6p7,
                        mmi_feb06_7p5, mmi_feb20_6p3,
                        mmi_feb06_7p8, mmi_feb06_6p0))
 
-# ntl_sum_df <- ntl_df %>%
-#   
-#   ## Classify time as two weeks before/after
-#   dplyr::mutate(period = case_when(
-#     date %in% ymd("2023-01-23"):ymd("2023-02-05") ~ "ntl_before",
-#     date %in% ymd("2023-02-07"):ymd("2023-02-20") ~ "ntl_after"
-#   )) %>%
-#   
-#   ## Average NTL by ADM2 and time period (two weeks before / after)
-#   group_by(period, pcode) %>%
-#   dplyr::summarise(ntl_bm_mean = mean(ntl_bm_mean)) %>%
-#   
-#   ## Reshape from long to wide
-#   ungroup() %>%
-#   pivot_wider(id_cols = pcode, names_from = period, values_from = ntl_bm_mean) %>%
-#   
-#   ## Determine % change and classify as large increase/decrease
-#   mutate(ntl_pchange = (ntl_after - ntl_before) / ntl_before * 100) %>%
-#   
-#   dplyr::mutate(change_type = case_when(
-#     ntl_pchange >= 10 ~ "> 10% Increase",
-#     ntl_pchange <= -10 ~ "> 10% Decrease",
-#     TRUE ~ "Small change"
-#   )) %>%
-
-
 ## Merge in percent change data to ADM2 spatial file
 adm2_sf <- adm2_sf %>%
   left_join(ntl_sum_df, by = "pcode")
 
 ## Deal with outliers
+
 adm2_sf$ntl_march_pc[adm2_sf$ntl_march_pc > 50] <- 50
 adm2_sf$ntl_2week_pc[adm2_sf$ntl_2week_pc > 50] <- 50
 adm2_sf$ntl_3day_pc[adm2_sf$ntl_3day_pc > 50] <- 50
@@ -150,6 +127,7 @@ for(var in c("ntl_2week", "ntl_march", "ntl_3day")){
          height = 6, width = 10)
   
 }
+
 
 # Trends of ADM2 with large increase/decrease ----------------------------------
 p <- ntl_df %>%
