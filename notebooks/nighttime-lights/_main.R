@@ -5,7 +5,10 @@
 #### Root paths
 if(Sys.info()[["user"]] == "robmarty"){
   git_dir  <- "~/Documents/Github/turkiye-earthquake-impact"
-  data_dir <- file.path("~", "Turkiye Earthquake Impact", "Data")
+  
+  data_dir <- file.path("~", "Dropbox", "World Bank", "Side Work", 
+                        "Turkiye Earthquake Impact", "Data")
+
 }
 
 #### Data Paths from Root
@@ -34,6 +37,8 @@ pacman::p_load(dplyr,
                stringr,
                ggplot2,
                purrr,
+               zoo,
+
                tidyverse,
                leaflet,
                ggpubr,
@@ -42,6 +47,9 @@ pacman::p_load(dplyr,
 if(!require(blackmarbler)){
   devtools::install_github("ramarty/blackmarbler")
 }
+
+library(blackmarbler)
+
 
 # Functions --------------------------------------------------------------------
 pad3 <- function(x){

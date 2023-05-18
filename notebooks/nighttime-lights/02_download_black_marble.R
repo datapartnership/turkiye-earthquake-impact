@@ -23,7 +23,7 @@ roi_sf <- roi_sp %>% st_as_sf()
 ## Annual Data
 bm_raster(roi_sf = roi_sf,
           product_id = "VNP46A4",
-          date = 2012:2021,
+          date = 2012:2022,
           bearer = BEARER,
           output_location_type = "file",
           file_dir = file.path(ntl_bm_dir, "FinalData", "VNP46A4_rasters"))
@@ -39,7 +39,7 @@ bm_raster(roi_sf = roi_sf,
 ## Daily Data
 bm_raster(roi_sf = roi_sf,
           product_id = "VNP46A2",
-          date = seq.Date(from = ymd("2023-01-01"), to = Sys.Date(), by = "day"),
+          date = seq.Date(from = ymd("2022-11-01"), to = Sys.Date(), by = "day"),
           bearer = BEARER,
           output_location_type = "file",
           file_dir = file.path(ntl_bm_dir, "FinalData", "VNP46A2_rasters"))
