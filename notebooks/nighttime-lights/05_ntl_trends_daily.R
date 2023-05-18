@@ -50,7 +50,8 @@ mi_df <- df %>%
   group_by(date, mi) %>%
   summarise(ntl_bm_mean = mean(ntl_bm_mean),
             ntl_bm_mean_ma7 = mean(ntl_bm_mean_ma7)) %>%
-  ungroup() 
+  ungroup() %>%
+  mutate(mi = paste0("MI = ", mi))
 
 mi_df %>%
   ggplot(aes(x = date)) +

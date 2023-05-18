@@ -187,18 +187,50 @@ ggplot() +
   scale_fill_manual(values = c("dodgerblue", "darkorange", "gray"))
 ```
 
-```{figure} ../../reports/figures/ntl_adm2_map_raw.png
+#### Percent Change
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_3day_pc.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to three days after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_2week_pc.png
 ---
 align: center
 ---
 Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
 ```
 
-```{figure} ../../reports/figures/ntl_adm2_map_cat.png
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_march_pc.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to March. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+#### +/-10% Change
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_3day_chng_bin.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to three days after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_2week_chng_bin.png
 ---
 align: center
 ---
 Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to two weeks after the earthquake. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
+```
+
+```{figure} ../../reports/figures/ntl_adm2_map_ntl_march_chng_bin.png
+---
+align: center
+---
+Change in nighttime lights from two weeks before the earthquake (February 6, 2023) to March. The figure shows administrative units where the earthquake had a 5 or more magnitude; the black line outlines administrative units where there was a magnitude of 6 or more.
 ```
 
 ### Trends in Nighttime Lights
