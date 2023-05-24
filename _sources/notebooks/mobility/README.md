@@ -19,3 +19,9 @@ Data are available upon request through the [Development Data Partnership](https
 ```{caution}
 The following working methodologies are a work in progress and waiting peer-review.
 ```
+
+## Limitations 
+```{warning}
+- **Sample Bias:** The sampled population is composed of GPS-enabled devices drawn out from a longituginal mobility data panel. It is important to emphasize the sampled population is obtained via convenience sampling and that the mobility data panel represents only a subset of the total population in an area at a time, specifically only users that turned on location tracking on their mobile device. Thus, derived metrics do not represent the total population density. 
+- **Incomplete Coverage:** Mobility data is typically collected from sources such as mobile phone networks, GPS devices, or transportation systems. These sources may not be representative of the entire population or all economic activities, leading to sample bias and potentially inaccurate estimations.Not all individuals or businesses have access to devices or services that generate mobility data. This can result in incomplete coverage and potential underrepresentation of certain demographic groups or economic sectors.
+- **Lack of Contextual Information:** Mobility data primarily captures movement patterns and geolocation information. It may lack other crucial contextual information, such as transactional data, business types, or specific economic activities, which are essential for accurate estimation of economic activity.
