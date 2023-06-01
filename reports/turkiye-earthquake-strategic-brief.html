@@ -1,777 +1,467 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-WGD658606P"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-WGD658606P');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reports/turkiye-earthquake-strategic-brief';</script>
     <link rel="canonical" href="https://datapartnership.github.io/turkiye-earthquake-impact/reports/turkiye-earthquake-strategic-brief.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction to Data Goods" href="../docs/introduction_to_data_goods.html" />
     <link rel="prev" title="Support for Türkiye Earthquake Impact Analysis" href="../README.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WGD658606P"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-WGD658606P');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Strategic Brief
- </span>
-</p>
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Strategic Brief</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction to Data Goods
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Data Goods</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../docs/introduction_to_data_goods.html">
-   Introduction to Data Goods
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/introduction_to_data_goods.html">Introduction to Data Goods</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Foundational Datasets
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundational Datasets</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../docs/foundational_datasets_and_data_products.html">
-   Foundational Datasets and Data Products Summary
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/earthquake-intensity/earthquake_intensity.html">
-   Earthquake Intensity Map of Turkiye
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/foundational_datasets_and_data_products.html">Foundational Datasets and Data Products Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/earthquake-intensity/earthquake_intensity.html">Earthquake Intensity Map of Turkiye</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Products
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Products</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notebooks/business-activity-trends/README.html">
-   Business Activity Trends
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/business-activity-trends/01-business-activity-trends.html">
-     Analysing business activity trends in Turkiye
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notebooks/internet-connectivity/README.html">
-   Internet Connectivity Post Earthquake
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/internet-connectivity/03a-meta-internet-connectivity.html">
-     Meta Mobile Network Connectivity
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/internet-connectivity/03b-ookla-speedtest-analysis.html">
-     Ookla’s Number of Speedtest Intelligence Users
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notebooks/mobility/README.html">
-   Movement Activity Trends
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/mobility/activity.html">
-     Estimating Activity based on Mobility Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/mobility/visits.html">
-     Estimating Activity based on Visits to Points of Interest
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks/nighttime-lights/README.html">
-   Nighttime Lights
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notebooks/surveys/README.html">
-   Surveys
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/surveys/premise.html">
-     Premise crowdsourced surveys
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/business-activity-trends/README.html">Business Activity Trends</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/business-activity-trends/01-business-activity-trends.html">Analysing business activity trends in Turkiye</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Sample Indicators and Insights
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../docs/sample-indicators.html">
-   Sample Indicators
-  </a>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/internet-connectivity/README.html">Internet Connectivity Post Earthquake</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/internet-connectivity/03a-meta-internet-connectivity.html">Meta Mobile Network Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/internet-connectivity/03b-ookla-speedtest-analysis.html">Ookla’s Number of Speedtest Intelligence Users</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Acknowledgements
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/mobility/README.html">Movement Activity Trends</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/mobility/activity.html">Estimating Activity based on Mobility Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/mobility/visits.html">Estimating Activity based on Visits to Points of Interest</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/nighttime-lights/README.html">Nighttime Lights</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/surveys/README.html">Surveys</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/surveys/premise.html">Premise crowdsourced surveys</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Sample Indicators and Insights</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../docs/team.html">
-   Data Goods Team and Acknowledgements
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/sample-indicators.html">Sample Indicators</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Acknowledgements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/team.html">Data Goods Team and Acknowledgements</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/turkiye-earthquake-impact" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/turkiye-earthquake-impact/edit/main/reports/turkiye-earthquake-strategic-brief.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/datapartnership/turkiye-earthquake-impact/issues/new?title=Issue%20on%20page%20%2Freports/turkiye-earthquake-strategic-brief.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
 
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/reports/turkiye-earthquake-strategic-brief.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
   </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/datapartnership/turkiye-earthquake-impact"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/issues/new?title=Issue%20on%20page%20%2Freports/turkiye-earthquake-strategic-brief.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/datapartnership/turkiye-earthquake-impact/edit/main/reports/turkiye-earthquake-strategic-brief.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/reports/turkiye-earthquake-strategic-brief.md"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.md</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-overview">
-   Project Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-collection-and-acquisition">
-   Data Collection and Acquisition
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#official-un-earthquake-and-refugee-impact-reporting">
-     Official UN Earthquake and Refugee Impact Reporting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#population-demographics-and-human-settlement-data">
-     Population,Demographics, and Human Settlement Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#satellite-imagery-for-detecting-land-surface-changes">
-     Satellite Imagery for Detecting Land Surface Changes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity">
-     Geospatial Infrastructure Data (Roads, Buildings, Power Grids, Internet Connectivity)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-for-understanding-critical-needs-and-access-to-services">
-     Data for Understanding Critical Needs and Access to Services
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-for-measuring-economic-activity-direct-and-proxies">
-     Data for Measuring Economic Activity (Direct and Proxies)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-for-monitoring-the-movement-of-people">
-     Data for Monitoring the Movement of People
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-management">
-   Data Management
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#privacy-and-security-considerations">
-     Privacy and Security Considerations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-storage">
-     Data Storage
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analytics-and-insight-dissemination">
-   Data Analytics and Insight Dissemination
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#i-understanding-displacement-patterns">
-     I.      Understanding Displacement Patterns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ii-understanding-economic-impacts">
-     II. Understanding Economic Impacts
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-a-observed-electricity-usage-at-night">
-       II.A. Observed Electricity Usage at Night
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-b-internet-connectivity-availability-and-quality">
-       II.B. Internet Connectivity Availability and Quality
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-c-observed-business-facebook-page-activity">
-       II.C. Observed Business Facebook Page Activity
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-d-damaged-or-inaccessible-local-businesses">
-       II.D. Damaged or Inaccessible Local Businesses
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-e-changes-in-financial-transaction-activity-by-sector">
-       II.E. Changes in Financial Transaction Activity by Sector
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#iii-understanding-social-impacts">
-     III. Understanding Social Impacts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#iv-dissemination-and-capacity-building">
-     IV. Dissemination and Capacity Building
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-resources">
-   Additional Resources
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#potential-partners-and-collaborators">
-     Potential Partners and Collaborators
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#development-data-partnerships-community-and-documentation">
-     Development Data Partnership’s Community and Documentation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#un-charter-activated-satellite-imagery">
-     UN Charter Activated Satellite Imagery
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-overview">
-   Project Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-collection-and-acquisition">
-   Data Collection and Acquisition
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#official-un-earthquake-and-refugee-impact-reporting">
-     Official UN Earthquake and Refugee Impact Reporting
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#population-demographics-and-human-settlement-data">
-     Population,Demographics, and Human Settlement Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#satellite-imagery-for-detecting-land-surface-changes">
-     Satellite Imagery for Detecting Land Surface Changes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity">
-     Geospatial Infrastructure Data (Roads, Buildings, Power Grids, Internet Connectivity)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-for-understanding-critical-needs-and-access-to-services">
-     Data for Understanding Critical Needs and Access to Services
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-for-measuring-economic-activity-direct-and-proxies">
-     Data for Measuring Economic Activity (Direct and Proxies)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-for-monitoring-the-movement-of-people">
-     Data for Monitoring the Movement of People
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-management">
-   Data Management
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#privacy-and-security-considerations">
-     Privacy and Security Considerations
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-storage">
-     Data Storage
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-analytics-and-insight-dissemination">
-   Data Analytics and Insight Dissemination
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#i-understanding-displacement-patterns">
-     I.      Understanding Displacement Patterns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ii-understanding-economic-impacts">
-     II. Understanding Economic Impacts
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-a-observed-electricity-usage-at-night">
-       II.A. Observed Electricity Usage at Night
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-b-internet-connectivity-availability-and-quality">
-       II.B. Internet Connectivity Availability and Quality
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-c-observed-business-facebook-page-activity">
-       II.C. Observed Business Facebook Page Activity
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-d-damaged-or-inaccessible-local-businesses">
-       II.D. Damaged or Inaccessible Local Businesses
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ii-e-changes-in-financial-transaction-activity-by-sector">
-       II.E. Changes in Financial Transaction Activity by Sector
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#iii-understanding-social-impacts">
-     III. Understanding Social Impacts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#iv-dissemination-and-capacity-building">
-     IV. Dissemination and Capacity Building
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-resources">
-   Additional Resources
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#potential-partners-and-collaborators">
-     Potential Partners and Collaborators
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#development-data-partnerships-community-and-documentation">
-     Development Data Partnership’s Community and Documentation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#un-charter-activated-satellite-imagery">
-     UN Charter Activated Satellite Imagery
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">Project Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection-and-acquisition">Data Collection and Acquisition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#official-un-earthquake-and-refugee-impact-reporting">Official UN Earthquake and Refugee Impact Reporting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#population-demographics-and-human-settlement-data">Population,Demographics, and Human Settlement Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery-for-detecting-land-surface-changes">Satellite Imagery for Detecting Land Surface Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity">Geospatial Infrastructure Data (Roads, Buildings, Power Grids, Internet Connectivity)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-understanding-critical-needs-and-access-to-services">Data for Understanding Critical Needs and Access to Services</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-measuring-economic-activity-direct-and-proxies">Data for Measuring Economic Activity (Direct and Proxies)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-monitoring-the-movement-of-people">Data for Monitoring the Movement of People</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management">Data Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-and-security-considerations">Privacy and Security Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-storage">Data Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analytics-and-insight-dissemination">Data Analytics and Insight Dissemination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-understanding-displacement-patterns">I.      Understanding Displacement Patterns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-understanding-economic-impacts">II. Understanding Economic Impacts</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-a-observed-electricity-usage-at-night">II.A. Observed Electricity Usage at Night</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-b-internet-connectivity-availability-and-quality">II.B. Internet Connectivity Availability and Quality</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-c-observed-business-facebook-page-activity">II.C. Observed Business Facebook Page Activity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-d-damaged-or-inaccessible-local-businesses">II.D. Damaged or Inaccessible Local Businesses</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-e-changes-in-financial-transaction-activity-by-sector">II.E. Changes in Financial Transaction Activity by Sector</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-understanding-social-impacts">III. Understanding Social Impacts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iv-dissemination-and-capacity-building">IV. Dissemination and Capacity Building</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-partners-and-collaborators">Potential Partners and Collaborators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-data-partnerships-community-and-documentation">Development Data Partnership’s Community and Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-charter-activated-satellite-imagery">UN Charter Activated Satellite Imagery</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="data-lab-strategic-brief-turkiye-earthquake-impact-monitoring">
-<h1>Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring<a class="headerlink" href="#data-lab-strategic-brief-turkiye-earthquake-impact-monitoring" title="Permalink to this headline">#</a></h1>
+<h1>Data Lab Strategic Brief: Türkiye Earthquake Impact Monitoring<a class="headerlink" href="#data-lab-strategic-brief-turkiye-earthquake-impact-monitoring" title="Permalink to this heading">#</a></h1>
 <p>A <strong>Strategic Brief</strong> is a high-level set of recommendations prepared by the <a class="reference external" href="https://wbdatalab.org">Data Lab</a> that address a given challenge. Recommendations may include internal and external data resources, specific colleagues and/or teams with relevant expertise, data management best practices, suggestions for exploration, and/or a list of relevant resources and
 similar projects.</p>
 <p>Should you have any questions about the Brief, please contact: <a class="reference external" href="mailto:datalab&#37;&#52;&#48;worldbank&#46;org">datalab<span>&#64;</span>worldbank<span>&#46;</span>org</a></p>
 <section id="project-overview">
-<h2>Project Overview<a class="headerlink" href="#project-overview" title="Permalink to this headline">#</a></h2>
+<h2>Project Overview<a class="headerlink" href="#project-overview" title="Permalink to this heading">#</a></h2>
 <p>On February 6, 2023, a powerful 7.8 magnitude earthquake and a series of strong tremors and aftershocks wrought substantial damages across southeastern Türkiye and northwest Syria. As of time of writing, the death toll has passed 40,000 and
 the earthquake’s aftermath is substantially impacting the people, infrastructure, and economies of the two countries.</p>
 <p><a class="reference external" href="https://www.worldbank.org/en/news/press-release/2023/02/09/world-bank-announces-initial-1-78-billion-for-turkiye-recovery-reconstruction-efforts-after-earthquake-disaster">The World Bank announced $1.78 Billion for Türkiye’s recovery and reconstruction efforts</a>.Effective World Bank and donor interventions will require a deep, data-driven understanding of these impacts.</p>
@@ -784,10 +474,10 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </ul>
 </section>
 <section id="data-collection-and-acquisition">
-<h2>Data Collection and Acquisition<a class="headerlink" href="#data-collection-and-acquisition" title="Permalink to this headline">#</a></h2>
+<h2>Data Collection and Acquisition<a class="headerlink" href="#data-collection-and-acquisition" title="Permalink to this heading">#</a></h2>
 <p><em>This section includes a range of data collection and acquisition recommendations, such as open data resources, leveraging private data partnerships, current World Bank subscriptions and licenses, survey solutions, and remote sensing.</em></p>
 <section id="official-un-earthquake-and-refugee-impact-reporting">
-<h3>Official UN Earthquake and Refugee Impact Reporting<a class="headerlink" href="#official-un-earthquake-and-refugee-impact-reporting" title="Permalink to this headline">#</a></h3>
+<h3>Official UN Earthquake and Refugee Impact Reporting<a class="headerlink" href="#official-un-earthquake-and-refugee-impact-reporting" title="Permalink to this heading">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
@@ -814,7 +504,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </table>
 </section>
 <section id="population-demographics-and-human-settlement-data">
-<h3>Population,Demographics, and Human Settlement Data<a class="headerlink" href="#population-demographics-and-human-settlement-data" title="Permalink to this headline">#</a></h3>
+<h3>Population,Demographics, and Human Settlement Data<a class="headerlink" href="#population-demographics-and-human-settlement-data" title="Permalink to this heading">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
@@ -865,7 +555,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </table>
 </section>
 <section id="satellite-imagery-for-detecting-land-surface-changes">
-<h3>Satellite Imagery for Detecting Land Surface Changes<a class="headerlink" href="#satellite-imagery-for-detecting-land-surface-changes" title="Permalink to this headline">#</a></h3>
+<h3>Satellite Imagery for Detecting Land Surface Changes<a class="headerlink" href="#satellite-imagery-for-detecting-land-surface-changes" title="Permalink to this heading">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
@@ -892,7 +582,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </table>
 </section>
 <section id="geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity">
-<h3>Geospatial Infrastructure Data (Roads, Buildings, Power Grids, Internet Connectivity)<a class="headerlink" href="#geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity" title="Permalink to this headline">#</a></h3>
+<h3>Geospatial Infrastructure Data (Roads, Buildings, Power Grids, Internet Connectivity)<a class="headerlink" href="#geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity" title="Permalink to this heading">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
@@ -937,7 +627,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </table>
 </section>
 <section id="data-for-understanding-critical-needs-and-access-to-services">
-<h3>Data for Understanding Critical Needs and Access to Services<a class="headerlink" href="#data-for-understanding-critical-needs-and-access-to-services" title="Permalink to this headline">#</a></h3>
+<h3>Data for Understanding Critical Needs and Access to Services<a class="headerlink" href="#data-for-understanding-critical-needs-and-access-to-services" title="Permalink to this heading">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
@@ -970,7 +660,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </table>
 </section>
 <section id="data-for-measuring-economic-activity-direct-and-proxies">
-<h3>Data for Measuring Economic Activity (Direct and Proxies)<a class="headerlink" href="#data-for-measuring-economic-activity-direct-and-proxies" title="Permalink to this headline">#</a></h3>
+<h3>Data for Measuring Economic Activity (Direct and Proxies)<a class="headerlink" href="#data-for-measuring-economic-activity-direct-and-proxies" title="Permalink to this heading">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
@@ -1003,7 +693,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </table>
 </section>
 <section id="data-for-monitoring-the-movement-of-people">
-<h3>Data for Monitoring the Movement of People<a class="headerlink" href="#data-for-monitoring-the-movement-of-people" title="Permalink to this headline">#</a></h3>
+<h3>Data for Monitoring the Movement of People<a class="headerlink" href="#data-for-monitoring-the-movement-of-people" title="Permalink to this heading">#</a></h3>
 <p>All the datasetswithin this category can be accessed by <a class="reference external" href="https://portal.datapartnership.org/submitproposal">submitting a proposal</a> to the <a class="reference external" href="https://portal.datapartnership.org/">Development Data Partnership</a>.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1051,10 +741,10 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </section>
 <hr class="docutils" />
 <section id="data-management">
-<h2>Data Management<a class="headerlink" href="#data-management" title="Permalink to this headline">#</a></h2>
+<h2>Data Management<a class="headerlink" href="#data-management" title="Permalink to this heading">#</a></h2>
 <p><em>This section includes data privacy policy, data storage and access policy and infrastructure, compute infrastructure, data license compliance, data security classifications, data sovereignty policy, etc.</em></p>
 <section id="privacy-and-security-considerations">
-<h3>Privacy and Security Considerations<a class="headerlink" href="#privacy-and-security-considerations" title="Permalink to this headline">#</a></h3>
+<h3>Privacy and Security Considerations<a class="headerlink" href="#privacy-and-security-considerations" title="Permalink to this heading">#</a></h3>
 <p>At this stage, the Lab does not have specific recommendations to the team regarding data management. That said, the Lab would like to ensure the team is aware that some analyses conducted over the course of the earthquake relief project may involve use of sensitive data and/or generate sensitive results. The Bank has two sets of guiding policies for secure data management and for protecting the privacy of individuals. The
 Task Team Leader and team members working closely with sensitive data and/or results are advised to review these policies before beginning project implementation.</p>
 <ul class="simple">
@@ -1063,21 +753,21 @@ Task Team Leader and team members working closely with sensitive data and/or res
 </ul>
 </section>
 <section id="data-storage">
-<h3>Data Storage<a class="headerlink" href="#data-storage" title="Permalink to this headline">#</a></h3>
+<h3>Data Storage<a class="headerlink" href="#data-storage" title="Permalink to this heading">#</a></h3>
 <p>As data are sourced and analyzed, the Lab recommends they is added to the World Bank Development Data Hub. This will ensure data are available to all Bank staff (as
 appropriate) for reuse, minimizing additional effort and duplication of acquisition by other teams. For assistance making data available, contact <strong>Rochelle O’Hagan</strong> (<u><a class="reference external" href="mailto:rohagan&#37;&#52;&#48;worldbank&#46;org">rohagan<span>&#64;</span>worldbank<span>&#46;</span>org</a></u>).</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="data-analytics-and-insight-dissemination">
-<h2>Data Analytics and Insight Dissemination<a class="headerlink" href="#data-analytics-and-insight-dissemination" title="Permalink to this headline">#</a></h2>
+<h2>Data Analytics and Insight Dissemination<a class="headerlink" href="#data-analytics-and-insight-dissemination" title="Permalink to this heading">#</a></h2>
 <p><em>With acquired data and sufficient data management procedures and infrastructure in place, how do we responsibly generate and share insights from these data? This section includes economics and statistical analysis, data science (AI/ML), app development, geospatial analytics, code collaboration best practices, reproducible code best practices, data product licensing, etc.</em></p>
 <br>
 <p>The Türkiye Country Economist has specifically requested recommendations for measuring and monitoring population displacement and business impacts.</p>
 <p>For each activity, the Data Lab can generate reusable methods and initial insights, and then train Bank teams to continue adjusting the methodology and generating the insights themselves, as needed. To the extent possible, insights will be geospatially aggregated to a granular level, enabling the CMU to quickly visualize correlations between indicators by location – e.g., relative damage index, population demographics, population movement, nighttime lights, internet availability, etc.</p>
 <p>The Lab coordinates the production of analytical work with team members from across the Bank, including (but not limited to) colleagues from DEC Analytics and Tools, Global Operations Support Team, GFDRR, Development Data Hub, Development Data Partnership, ITS Technology and Innovation Lab, and ITS.</p>
 <section id="i-understanding-displacement-patterns">
-<h3>I.      Understanding Displacement Patterns<a class="headerlink" href="#i-understanding-displacement-patterns" title="Permalink to this headline">#</a></h3>
+<h3>I.      Understanding Displacement Patterns<a class="headerlink" href="#i-understanding-displacement-patterns" title="Permalink to this heading">#</a></h3>
 <p>The Data Lab can undertake the following activities to better understand population movements (who, where, and when) resulting from the earthquake:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1105,11 +795,11 @@ appropriate) for reuse, minimizing additional effort and duplication of acquisit
 </table>
 </section>
 <section id="ii-understanding-economic-impacts">
-<h3>II. Understanding Economic Impacts<a class="headerlink" href="#ii-understanding-economic-impacts" title="Permalink to this headline">#</a></h3>
+<h3>II. Understanding Economic Impacts<a class="headerlink" href="#ii-understanding-economic-impacts" title="Permalink to this heading">#</a></h3>
 <p>The Lab proposes focusing on the following key business activity and business
 supporting infrastructure indicators:</p>
 <section id="ii-a-observed-electricity-usage-at-night">
-<h4>II.A. Observed Electricity Usage at Night<a class="headerlink" href="#ii-a-observed-electricity-usage-at-night" title="Permalink to this headline">#</a></h4>
+<h4>II.A. Observed Electricity Usage at Night<a class="headerlink" href="#ii-a-observed-electricity-usage-at-night" title="Permalink to this heading">#</a></h4>
 <p>By comparing pre- and post-earthquake nighttime light data, we can identify changes in availability of electricity, mass movements of people, and changes in oil refining (through flaring). Some of our sample work using this methodology can be seen <a class="reference external" href="https://datapartnership.org/syria-economic-monitor/notebooks/ntl-analysis/README.html">as part of the Syria Economic Monitor.</a></p>
 <table class="colwidths-auto table">
 <thead>
@@ -1137,7 +827,7 @@ supporting infrastructure indicators:</p>
 </table>
 </section>
 <section id="ii-b-internet-connectivity-availability-and-quality">
-<h4>II.B. Internet Connectivity Availability and Quality<a class="headerlink" href="#ii-b-internet-connectivity-availability-and-quality" title="Permalink to this headline">#</a></h4>
+<h4>II.B. Internet Connectivity Availability and Quality<a class="headerlink" href="#ii-b-internet-connectivity-availability-and-quality" title="Permalink to this heading">#</a></h4>
 <p>In Türkiye, the internet underpins modernbusiness and the government’s ability to communicate resources to those in need. Understanding changes in availability post-earthquake are an immediate proxy for damages to this critical infrastructure.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1165,7 +855,7 @@ supporting infrastructure indicators:</p>
 </table>
 </section>
 <section id="ii-c-observed-business-facebook-page-activity">
-<h4>II.C. Observed Business Facebook Page Activity<a class="headerlink" href="#ii-c-observed-business-facebook-page-activity" title="Permalink to this headline">#</a></h4>
+<h4>II.C. Observed Business Facebook Page Activity<a class="headerlink" href="#ii-c-observed-business-facebook-page-activity" title="Permalink to this heading">#</a></h4>
 <p>Many local businesses use Facebook as their primary business website. Facebook records levels of activity on these pages, aggregates activity by location and sector, and presents as generalized trend indicators for levels of business activity.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1193,7 +883,7 @@ supporting infrastructure indicators:</p>
 </table>
 </section>
 <section id="ii-d-damaged-or-inaccessible-local-businesses">
-<h4>II.D. Damaged or Inaccessible Local Businesses<a class="headerlink" href="#ii-d-damaged-or-inaccessible-local-businesses" title="Permalink to this headline">#</a></h4>
+<h4>II.D. Damaged or Inaccessible Local Businesses<a class="headerlink" href="#ii-d-damaged-or-inaccessible-local-businesses" title="Permalink to this heading">#</a></h4>
 <p>By layering road and building footprint damages with points of interest, we can generate statistics on impacted businesses, banks, and other ancillary services critical to local functioning economies.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1221,7 +911,7 @@ supporting infrastructure indicators:</p>
 </table>
 </section>
 <section id="ii-e-changes-in-financial-transaction-activity-by-sector">
-<h4>II.E. Changes in Financial Transaction Activity by Sector<a class="headerlink" href="#ii-e-changes-in-financial-transaction-activity-by-sector" title="Permalink to this headline">#</a></h4>
+<h4>II.E. Changes in Financial Transaction Activity by Sector<a class="headerlink" href="#ii-e-changes-in-financial-transaction-activity-by-sector" title="Permalink to this heading">#</a></h4>
 <p>To understand better the timing of cessation and resumption of retail business activity, we can try to monitor changes in levels of transaction data (for credit card payments).</p>
 <table class="colwidths-auto table">
 <thead>
@@ -1250,7 +940,7 @@ supporting infrastructure indicators:</p>
 </section>
 </section>
 <section id="iii-understanding-social-impacts">
-<h3>III. Understanding Social Impacts<a class="headerlink" href="#iii-understanding-social-impacts" title="Permalink to this headline">#</a></h3>
+<h3>III. Understanding Social Impacts<a class="headerlink" href="#iii-understanding-social-impacts" title="Permalink to this heading">#</a></h3>
 <p>To get a sense of “need intensity,” the team can explore use of the Google Health
 Trends API (available through the Development Data Partnership) to determine
 temporally and by region changes in queries related to key terms provided by
@@ -1284,7 +974,7 @@ social media data (e.g., Twitter which has roughly 16 million users in Türkiye)
 </table>
 </section>
 <section id="iv-dissemination-and-capacity-building">
-<h3>IV. Dissemination and Capacity Building<a class="headerlink" href="#iv-dissemination-and-capacity-building" title="Permalink to this headline">#</a></h3>
+<h3>IV. Dissemination and Capacity Building<a class="headerlink" href="#iv-dissemination-and-capacity-building" title="Permalink to this heading">#</a></h3>
 <p>Since analytical results from this work could support additional teams and
 counterparts, the team create a centralized repository of all datasets used in analytical
 work an ensure all data are suitably documented and made accessible (where
@@ -1296,9 +986,9 @@ across the widest possible audience.</p>
 </section>
 </section>
 <section id="additional-resources">
-<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this headline">#</a></h2>
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Permalink to this heading">#</a></h2>
 <section id="potential-partners-and-collaborators">
-<h3>Potential Partners and Collaborators<a class="headerlink" href="#potential-partners-and-collaborators" title="Permalink to this headline">#</a></h3>
+<h3>Potential Partners and Collaborators<a class="headerlink" href="#potential-partners-and-collaborators" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The World Bank participates in a collaboration with the <strong>UN High Commissioner for Refugees (UNHCR) Joint Data Center (JDC)</strong> (<a class="reference external" href="https://www.jointdatacenter.org/">https://www.jointdatacenter.org/</a>), which supports data collection on refugees. The team may consider reaching out to the World Bank focal point for this collaboration, Harriet Kasidi Mugera (<a class="reference external" href="mailto:hmugera&#37;&#52;&#48;worldbank&#46;org">hmugera<span>&#64;</span>worldbank<span>&#46;</span>org</a>), to determine what data may be available on refugees that would be relevant.</p></li>
 <li><p>The <a class="reference external" href="https://www.unglobalpulse.org/lab/jakarta/"><strong>UN Pulse Lab Jakarta</strong></a> has previously developed methodologies for monitoring <a class="reference external" href="https://www.unglobalpulse.org/wp-content/uploads/2021/03/CameraReady-13.pdf">economic shock impacts using banking data,</a> <a class="reference external" href="https://medium.com/pulse-lab-jakarta/understanding-population-movement-after-the-2018-central-sulawesi-natural-disasters-70ab95b7741b">internal population movement</a> using mobile phone data, and <a class="reference external" href="https://medium.com/pulse-lab-jakarta/managing-relevant-information-in-the-aftermath-of-natural-disasters-launching-pljs-latest-data-de3b4cbae07b">disaster response management</a> using social media data. These methodologies may also be applicable to earthquake response. If the team were interested in collaboration, enquiries could be made to Pulse Lab Jakarta (<a class="reference external" href="mailto:plj&#37;&#52;&#48;un&#46;or&#46;id">plj<span>&#64;</span>un<span>&#46;</span>or<span>&#46;</span>id</a>; please cc: <a class="reference external" href="mailto:datalab&#37;&#52;&#48;worldbank&#46;org">datalab<span>&#64;</span>worldbank<span>&#46;</span>org)</a></p></li>
@@ -1306,14 +996,14 @@ across the widest possible audience.</p>
 </ul>
 </section>
 <section id="development-data-partnerships-community-and-documentation">
-<h3>Development Data Partnership’s Community and Documentation<a class="headerlink" href="#development-data-partnerships-community-and-documentation" title="Permalink to this headline">#</a></h3>
+<h3>Development Data Partnership’s Community and Documentation<a class="headerlink" href="#development-data-partnerships-community-and-documentation" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://datapartnership.org">Development Data Partnership</a> fosters a community of data
 practitioners and maintains a robust data documentation and code collaboration
 platform based on GitHub, which is recognized as a good practice in the World
 Bank and in partner international organizations. See more at <a class="reference external" href="https://docs.datapartnership.org">https://docs.datapartnership.org</a>.</p>
 </section>
 <section id="un-charter-activated-satellite-imagery">
-<h3>UN Charter Activated Satellite Imagery<a class="headerlink" href="#un-charter-activated-satellite-imagery" title="Permalink to this headline">#</a></h3>
+<h3>UN Charter Activated Satellite Imagery<a class="headerlink" href="#un-charter-activated-satellite-imagery" title="Permalink to this heading">#</a></h3>
 <p>Following are additional geospatal datasets that may be of use to the CMU team: <a class="reference external" href="https://worldbankgroup.sharepoint.com/:w:/t/DevelopmentDataPartnershipCommunity-WBGroup/EbsPDeosz4xLlpAuWCZ-QnEB088eENs8dFw6OYpn_cnogw?e=9hmykY">Earthquake related data sources.docx</a></p>
 </section>
 </section>
@@ -1339,56 +1029,142 @@ Bank and in partner international organizations. See more at <a class="reference
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Support for Türkiye Earthquake Impact Analysis</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Support for Türkiye Earthquake Impact Analysis</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../docs/introduction_to_data_goods.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../docs/introduction_to_data_goods.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Introduction to Data Goods</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-overview">Project Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-collection-and-acquisition">Data Collection and Acquisition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#official-un-earthquake-and-refugee-impact-reporting">Official UN Earthquake and Refugee Impact Reporting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#population-demographics-and-human-settlement-data">Population,Demographics, and Human Settlement Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satellite-imagery-for-detecting-land-surface-changes">Satellite Imagery for Detecting Land Surface Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity">Geospatial Infrastructure Data (Roads, Buildings, Power Grids, Internet Connectivity)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-understanding-critical-needs-and-access-to-services">Data for Understanding Critical Needs and Access to Services</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-measuring-economic-activity-direct-and-proxies">Data for Measuring Economic Activity (Direct and Proxies)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-for-monitoring-the-movement-of-people">Data for Monitoring the Movement of People</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-management">Data Management</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-and-security-considerations">Privacy and Security Considerations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-storage">Data Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analytics-and-insight-dissemination">Data Analytics and Insight Dissemination</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-understanding-displacement-patterns">I.      Understanding Displacement Patterns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-understanding-economic-impacts">II. Understanding Economic Impacts</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-a-observed-electricity-usage-at-night">II.A. Observed Electricity Usage at Night</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-b-internet-connectivity-availability-and-quality">II.B. Internet Connectivity Availability and Quality</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-c-observed-business-facebook-page-activity">II.C. Observed Business Facebook Page Activity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-d-damaged-or-inaccessible-local-businesses">II.D. Damaged or Inaccessible Local Businesses</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-e-changes-in-financial-transaction-activity-by-sector">II.E. Changes in Financial Transaction Activity by Sector</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-understanding-social-impacts">III. Understanding Social Impacts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iv-dissemination-and-capacity-building">IV. Dissemination and Capacity Building</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-resources">Additional Resources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-partners-and-collaborators">Potential Partners and Collaborators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#development-data-partnerships-community-and-documentation">Development Data Partnership’s Community and Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-charter-activated-satellite-imagery">UN Charter Activated Satellite Imagery</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By World Bank Development Data Group<br/>
+  <div class="footer-item">
+    
+<p class="component-author">
+By World Bank Development Data Group
+</p>
+
+  </div>
   
-    Last updated on May 25, 2023.<br/>
-    <div class="extra_footer">
-      <div>
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on Jun 01, 2023.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <div>
     <b>All content (unless otherwise specified) is subject to the <a href="https://raw.githubusercontent.com/worldbank/template/main/LICENSE">World Bank Master Community License Agreement.</a></b>
 </div>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
