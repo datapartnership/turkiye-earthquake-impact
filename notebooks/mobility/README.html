@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Movement Activity Trends</title>
+    <title>Population Movement Trends</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -72,10 +73,11 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://datapartnership.github.io/turkiye-earthquake-impact/notebooks/mobility/README.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Estimating Activity based on Mobility Data" href="activity.html" />
+    <link rel="next" title="Estimating Activity through Mobility Data" href="activity.html" />
     <link rel="prev" title="Ookla’s Number of Speedtest Intelligence Users" href="../internet-connectivity/03b-ookla-speedtest-analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Oct 03, 2023"/>
   </head>
   
   
@@ -84,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -180,9 +191,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../internet-connectivity/03b-ookla-speedtest-analysis.html">Ookla’s Number of Speedtest Intelligence Users</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Movement Activity Trends</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="activity.html">Estimating Activity based on Mobility Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visits.html">Estimating Activity based on Visits to Points of Interest</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Population Movement Trends</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="activity.html">Estimating Activity through Mobility Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visits.html">Estimating Activity based on Visits to Points of Interest through Mobility Data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nighttime-lights/README.html">Nighttime Lights</a></li>
@@ -370,10 +381,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -381,7 +392,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -398,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Movement Activity Trends</h1>
+    <h1>Population Movement Trends</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -425,13 +436,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="movement-activity-trends">
-<h1>Movement Activity Trends<a class="headerlink" href="#movement-activity-trends" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="population-movement-trends">
+<h1>Population Movement Trends<a class="headerlink" href="#population-movement-trends" title="Permalink to this heading">#</a></h1>
 <p>Understanding where and when population movement occurs can help inform disaster response and public policy, especially during crises.</p>
 <section id="data">
 <span id="mobility-data"></span><h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
-<p>The WB Data Lab team obtained a high-frequency longitudinal panel of human mobility. The data consisted of anonymized timestamped geographical points generated by GPS-enabled devices, located in Türkiye and Syria and spanning the period between January 1, 2023 to May 14, 2023.</p>
-<p>The mobility data panel has been provided pro-bono by <a class="reference external" href="https://veraset.com">Veraset</a> to the proposal <a class="reference external" href="https://portal.datapartnership.org/readableproposal/427">Türkiye Rapid Damage Needs Assessment</a> through the <a class="reference external" href="https://datapartnership.org">Development Data Partnership</a>. During the project’s execution, <a class="reference external" href="https://www.veraset.com/products/movement/">Veraset Movement</a>’s global daily data feed was ingested and processed through the <a class="reference external" href="https://docs.datapartnership.org/collections/mobility/README.html">Mobility</a> pipeline maintained by the <a class="reference external" href="https://datapartnership.org/">Development Data Partnership</a>. For additional information, please refer to the <a class="reference external" href="https://docs.datapartnership.org/collections/mobility/README.html">Mobility Documentation</a> accessible to all World Bank staff.</p>
+<p>The WB Data Lab team obtained longitudinal human mobility data. The data consisted of anonymized timestamped geographical points generated by GPS-enabled devices, located in Türkiye and Syria and spanning the period between January 1, 2023 to September 17, 2023.</p>
+<p>The mobility data was provided pro-bono by <a class="reference external" href="https://veraset.com">Veraset</a> through the proposal <a class="reference external" href="https://portal.datapartnership.org/readableproposal/427">Türkiye Rapid Damage Needs Assessment</a> via  the <a class="reference external" href="https://datapartnership.org">Development Data Partnership</a>. During the project’s execution, <a class="reference external" href="https://www.veraset.com/products/movement/">Veraset Movement</a>’s global daily data feed was ingested and processed through the <a class="reference external" href="https://docs.datapartnership.org/collections/mobility/README.html">Mobility</a> pipeline maintained by the <a class="reference external" href="https://datapartnership.org/">Development Data Partnership</a>. For additional information, please refer to the <a class="reference external" href="https://docs.datapartnership.org/collections/mobility/README.html">Mobility Documentation</a> accessible to all World Bank staff.</p>
 <section id="data-availability-statement">
 <h3>Data Availability Statement<a class="headerlink" href="#data-availability-statement" title="Permalink to this heading">#</a></h3>
 <p>Data are available upon request through the <a class="reference external" href="https://datapartnership.org">Development Data Partnership</a>. Licensing and access information for all other datasets are included in the documentation.</p>
@@ -441,8 +452,12 @@ document.write(`
 <h2>Methodology<a class="headerlink" href="#methodology" title="Permalink to this heading">#</a></h2>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>The following working methodologies are a work in progress and waiting peer-review.</p>
+<p>The following working methodologies are a work in progress and awaiting review.</p>
 </div>
+<ul class="simple">
+<li><p><a class="reference internal" href="activity.html#mobility-activity"><span class="std std-ref">Estimating Activity through Mobility Data</span></a></p></li>
+<li><p><a class="reference internal" href="visits.html#mobility-visits"><span class="std std-ref">Estimating Activity based on Visits to Points of Interest through Mobility Data</span></a></p></li>
+</ul>
 </section>
 <section id="limitations">
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
@@ -484,11 +499,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../internet-connectivity/03b-ookla-speedtest-analysis.html"
@@ -504,14 +518,11 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Estimating Activity based on Mobility Data</p>
+        <p class="prev-next-title">Estimating Activity through Mobility Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -557,7 +568,7 @@ By World Bank Development Data Group
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Jun 01, 2023.
+  Last updated on Oct 03, 2023.
   <br/>
 </p>
   </div>
@@ -581,8 +592,8 @@ By World Bank Development Data Group
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
   </footer>
