@@ -29,6 +29,7 @@ parts:
       - file: notebooks/surveys/README
         sections:
           - file:  notebooks/surveys/premise.ipynb
+      - file: notebooks/crop-growing-status/README
   - caption: Sample Indicators and Insights
     chapters:
       - file: docs/sample-indicators
