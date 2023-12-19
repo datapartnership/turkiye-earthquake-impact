@@ -2,7 +2,7 @@
 
 In Türkiye, a country with diverse climatic zones ranging from Mediterranean to continental climates, monitoring crop growth is crucial. The nation's varied topography, including coastal plains, high mountains, and fertile plateaus, greatly influences its agricultural practices. Regular observation of crop growth in Türkiye is vital for informed agricultural management, adaptation to environmental changes, and understanding the impact of climatic diversity on agriculture [^1][^2]. This monitoring is key to sustaining Türkiye's rich biodiversity, supporting its agricultural economy, which is a significant contributor to the national GDP, and managing land resources effectively.
 
-![Boundary](./images/tur_bnd_administrative.png)
+![Boundary](./images/tur_bnd_administration.png)
 
 **Figure 1.** Administrative boundary.
 
@@ -172,7 +172,7 @@ These variables, which are derived from the EVI data and the cropland extent, en
 :::
 
 :::{tab-item} Vegetation Condition Index, October 2023
-![VCI1](./images/tur_evi_vci_202309.png)
+![VCI1](./images/tur_evi_vci_202310.png)
 
 **Figure 12.** Vegetation Condition Index, October 2023, compared to the reference 2003-2022
 :::
