@@ -448,13 +448,13 @@ This section presents a comprehensive analysis of planting and harvest cycles in
 		:::
 
 		:::{tab-item} Agri
-		![AA3](./images/plot_tur_adm1_Agri_Lebanon_annual_pheno.png)
+		![AA3](./images/plot_tur_adm1_Agri_annual_pheno.png)
 
 		**Figure 42.** Agri, Annual Harvest and Planting Anomaly, 2003-2023
 		:::
 
 		:::{tab-item} Amasya
-		![AA4](./images/plot_tur_adm1_El_Amasya_annual_pheno.png)
+		![AA4](./images/plot_tur_adm1_Amasya_annual_pheno.png)
 
 		**Figure 43.** Amasya, Annual Harvest and Planting Anomaly, 2003-2023
 		:::
@@ -932,13 +932,13 @@ This section presents a comprehensive analysis of planting and harvest cycles in
 		:::
 
 		:::{tab-item} Agri
-		![MA3](./images/plot_tur_adm1_Agri_Lebanon_monthly_pheno.png)
+		![MA3](./images/plot_tur_adm1_Agri_monthly_pheno.png)
 
 		**Figure 122.** Agri, Monthly Harvest and Planting Anomaly, 2003-2023
 		:::
 
 		:::{tab-item} Amasya
-		![MA4](./images/plot_tur_adm1_El_Amasya_monthly_pheno.png)
+		![MA4](./images/plot_tur_adm1_Amasya_monthly_pheno.png)
 
 		**Figure 123.** Amasya, Monthly Harvest and Planting Anomaly, 2003-2023
 		:::
@@ -1436,13 +1436,13 @@ This section presents a comprehensive analysis of planting and harvest cycles in
 		:::
 
 		:::{tab-item} Agri
-		![RTA3](./images/plot_tur_adm1_Agri_Lebanon_annual_preciptavg.png)
+		![RTA3](./images/plot_tur_adm1_Agri_annual_preciptavg.png)
 
 		**Figure 204.** Agri, Annual Rainfall and Temperature, 2003-2023
 		:::
 
 		:::{tab-item} Amasya
-		![RTA4](./images/plot_tur_adm1_El_Amasya_annual_preciptavg.png)
+		![RTA4](./images/plot_tur_adm1_Amasya_annual_preciptavg.png)
 
 		**Figure 205.** Amasya, Annual Rainfall and Temperature, 2003-2023
 		:::
@@ -1920,13 +1920,13 @@ This section presents a comprehensive analysis of planting and harvest cycles in
 		:::
 
 		:::{tab-item} Agri
-		![RTM3](./images/plot_tur_adm1_Agri_Lebanon_monthly_preciptavg.png)
+		![RTM3](./images/plot_tur_adm1_Agri_monthly_preciptavg.png)
 
 		**Figure 284.** Agri, Monthly Rainfall and Temperature, 2003-2023
 		:::
 
 		:::{tab-item} Amasya
-		![RTM4](./images/plot_tur_adm1_El_Amasya_monthly_preciptavg.png)
+		![RTM4](./images/plot_tur_adm1_Amasya_monthly_preciptavg.png)
 
 		**Figure 285.** Amasya, Monthly Rainfall and Temperature, 2003-2023
 		:::
@@ -2427,13 +2427,13 @@ This section delves into the analysis of annual and monthly trends in planting a
 	:::
 
 	:::{tab-item} Agri
-	![AHPA3](./images/plot_tur_adm1_Agri_Lebanon_annual_pheno_anomaly_with_LTA_2003_2022.png)
+	![AHPA3](./images/plot_tur_adm1_Agri_annual_pheno_anomaly_with_LTA_2003_2022.png)
 
 	**Figure 366.** Agri, Annual Harvest and Planting Anomaly, 2003-2023
 	:::
 
 	:::{tab-item} Amasya
-	![AHPA4](./images/plot_tur_adm1_El_Amasya_annual_pheno_anomaly_with_LTA_2003_2022.png)
+	![AHPA4](./images/plot_tur_adm1_Amasya_annual_pheno_anomaly_with_LTA_2003_2022.png)
 
 	**Figure 367.** Amasya, Annual Harvest and Planting Anomaly, 2003-2023
 	:::
@@ -2913,13 +2913,13 @@ This section delves into the analysis of annual and monthly trends in planting a
 	:::
 
 	:::{tab-item} Agri
-	![MHPA3](./images/plot_tur_adm1_Agri_Lebanon_monthly_pheno_anomaly_heatmap_with_LTA_2003_2022.png)
+	![MHPA3](./images/plot_tur_adm1_Agri_monthly_pheno_anomaly_heatmap_with_LTA_2003_2022.png)
 
 	**Figure 446.** Agri, Monthly Harvest and Planting Anomaly, 2003-2023
 	:::
 
 	:::{tab-item} Amasya
-	![MHPA4](./images/plot_tur_adm1_El_Amasya_monthly_pheno_anomaly_heatmap_with_LTA_2003_2022.png)
+	![MHPA4](./images/plot_tur_adm1_Amasya_monthly_pheno_anomaly_heatmap_with_LTA_2003_2022.png)
 
 	**Figure 447.** Amasya, Monthly Harvest and Planting Anomaly, 2003-2023
 	:::
