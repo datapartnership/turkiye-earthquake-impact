@@ -1,0 +1,18 @@
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - bokeh
+  - dask[version='<2024']
+  - dask-geopandas
+  - datashader
+  - distributed
+  - geopandas
+  - holoviews
+  - pandas
+  - pyarrow
+  - s3fs
+  - scikit-learn
+  - jupyterlab
+  - conda-lock
+  - pyogrio

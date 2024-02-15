@@ -8,12 +8,10 @@ parts:
   - caption: Introduction to Data Goods
     chapters:
       - file: docs/introduction_to_data_goods
-  - caption: Foundational Datasets
-    chapters:
-      - file: docs/foundational_datasets_and_data_products.md
-      - file: notebooks/earthquake-intensity/earthquake_intensity.ipynb
+      - file: docs/data
   - caption: Data Products
     chapters:
+      - file: notebooks/earthquake-intensity/earthquake_intensity.ipynb
       - file: notebooks/business-activity-trends/README
         sections:
           - file: notebooks/business-activity-trends/01-business-activity-trends.ipynb
@@ -28,7 +26,7 @@ parts:
       - file: notebooks/nighttime-lights/README
       - file: notebooks/surveys/README
         sections:
-          - file:  notebooks/surveys/premise.ipynb
+          - file: notebooks/surveys/premise.ipynb
   - caption: Sample Indicators and Insights
     chapters:
       - file: docs/sample-indicators
