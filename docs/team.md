@@ -10,4 +10,4 @@ The Data Lab would like to express our sincere gratutude and appreciation for th
 | [Gabriel Stefanini Vicente](mailto:gvicente@worldbank.org) | Data Scientist - Cross border activity   monitoring using GPS data                        | WB Data Lab, DECDG |
 | [Sahiti Sarva](mailto:ssarva@worldbank.org)                | Data Scientist - Internet Connectivity, Business Activity Trends, Premise surveys, Access, code and data management                                       | WB Data Lab, DECDG |
 
-The Data Lab would also like to express our appreciation for Han Anand Beck, Lead Country Economist for Turkiye, who has entrusted our team with using alternative data sources to understand a rapidly changing, complex problem. 
+The Data Lab would also like to express our appreciation for Han Anand Beck, Lead Country Economist for Turkiye, who has entrusted our team with using alternative data sources to understand a rapidly changing, complex problem.
