@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -47,9 +47,10 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -63,11 +64,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-WGD658606P');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/earthquake-intensity/earthquake_intensity';</script>
     <link rel="canonical" href="https://datapartnership.github.io/turkiye-earthquake-impact/notebooks/earthquake-intensity/earthquake_intensity.html" />
@@ -169,7 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Strategic Brief</span></p>
 <ul class="nav bd-sidenav">
@@ -426,7 +434,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="earthquake-intensity-map-of-turkiye">
 <h1>Earthquake Intensity Map of Turkiye<a class="headerlink" href="#earthquake-intensity-map-of-turkiye" title="Permalink to this heading">#</a></h1>
-<p>Earthquake Intensity Data was obtained from version 15 from <a class="reference external" href="https://earthquake.usgs.gov/earthquakes/map/?extent=31.98944,23.02734&amp;extent=43.99281,49.74609&amp;range=search&amp;timeZone=utc&amp;search=%7B%22name%22:%22Search%20Results%22,%22params%22:%7B%22starttime%22:%222023-02-01%2000:00:00%22,%22endtime%22:%222023-02-28%2023:59:59%22,%22maxlatitude%22:42.778,%22minlatitude%22:33.394,%22maxlongitude%22:47.813,%22minlongitude%22:24.961,%22minmagnitude%22:6,%22orderby%22:%22time%22%7D%7D">USGS</a> and was overlayed with shapefiles of Turkey admin 2 region taken from <a class="reference external" href="https://data.humdata.org/organization/ocha-turkey">UNOCHA</a>. This can be used as a baseline map upon which other indicators can be visualized.</p>
+<p>Earthquake Intensity Data was obtained from version 15 from <a class="reference external" href="https://earthquake.usgs.gov/earthquakes/map/?extent=31.98944,23.02734&amp;amp;extent=43.99281,49.74609&amp;amp;range=search&amp;amp;timeZone=utc&amp;amp;search=%7B%22name%22:%22Search%20Results%22,%22params%22:%7B%22starttime%22:%222023-02-01%2000:00:00%22,%22endtime%22:%222023-02-28%2023:59:59%22,%22maxlatitude%22:42.778,%22minlatitude%22:33.394,%22maxlongitude%22:47.813,%22minlongitude%22:24.961,%22minmagnitude%22:6,%22orderby%22:%22time%22%7D%7D">USGS</a> and was overlayed with shapefiles of Turkey admin 2 region taken from <a class="reference external" href="https://data.humdata.org/organization/ocha-turkey">UNOCHA</a>. This can be used as a baseline map upon which other indicators can be visualized.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">

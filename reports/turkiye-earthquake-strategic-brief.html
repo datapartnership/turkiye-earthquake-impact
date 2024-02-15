@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -47,9 +47,10 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -63,11 +64,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-WGD658606P');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reports/turkiye-earthquake-strategic-brief';</script>
     <link rel="canonical" href="https://datapartnership.github.io/turkiye-earthquake-impact/reports/turkiye-earthquake-strategic-brief.html" />
@@ -169,7 +166,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Strategic Brief</span></p>
 <ul class="current nav bd-sidenav">
@@ -617,7 +625,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 <td><p>Microsoft Building Footprints</p></td>
 <td><p>Microsoft has used AI to generate recent baseline building footprints for Türkiye and northern Syria (dated November 2022) that are accessible through an open-source license.</p></td>
 <td><p>Open</p></td>
-<td><p><a class="reference external" href="https://github.com/microsoft/GlobalMLBuildingFootprints">Building footprint respository</a>; Footprints for Türkiye and Syria:  <a class="reference external" href="https://worldbankgroup.sharepoint.com.mcas.ms/teams/DevelopmentDataPartnershipCommunity-WBGroup/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FDevelopmentDataPartnershipCommunity%2DWBGroup%2FShared%20Documents%2FProjects%2FData%20Lab%2FTurkey%20Rapid%20Damage%20Needs%20Assessment%2FData%2Fmicrosoft%5Fbuilding%5Ffootprints%5Fdata&amp;p=true&amp;ga=1&amp;McasCtx=4&amp;McasTsid=20892">WB SharePoint</a></p></td>
+<td><p><a class="reference external" href="https://github.com/microsoft/GlobalMLBuildingFootprints">Building footprint respository</a>; Footprints for Türkiye and Syria:  <a class="reference external" href="https://worldbankgroup.sharepoint.com.mcas.ms/teams/DevelopmentDataPartnershipCommunity-WBGroup/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FDevelopmentDataPartnershipCommunity%2DWBGroup%2FShared%20Documents%2FProjects%2FData%20Lab%2FTurkey%20Rapid%20Damage%20Needs%20Assessment%2FData%2Fmicrosoft%5Fbuilding%5Ffootprints%5Fdata&amp;amp;p=true&amp;amp;ga=1&amp;amp;McasCtx=4&amp;amp;McasTsid=20892">WB SharePoint</a></p></td>
 </tr>
 <tr class="row-even"><td><p>13</p></td>
 <td><p>Meta Electricity Grid Distribution Maps</p></td>
@@ -687,7 +695,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 <tbody>
 <tr class="row-even"><td><p>19</p></td>
 <td><p>Nighttime Lights</p></td>
-<td><p>Nighttime lights have proven to be useful predictors of numerous dimensions of human<br> activity: electrification, population, GDP, etc. Recent developments have made the <a class="reference external" href="https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&amp;originalUrl=https%3A%2F%2Fregistry.opendata.aws.mcas.ms%2Fwb-light-every-night%2F%3FMcasTsid%3D15600&amp;McasCSRF=a23286b96554bdf2bb45f530a7ef684e2eec1746893939d64046ccd9f3c587c2">entire nightly archive of nighttime lights</a> available in the public domain, and novel tools have made <a class="reference external" href="https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&amp;originalUrl=https%3A%2F%2Fgithub.com.mcas.ms%2Fworldbank%2FNTL_Harmonizer%3FMcasTsid%3D15600&amp;McasCSRF=a23286b96554bdf2bb45f530a7ef684e2eec1746893939d64046ccd9f3c587c2">generating a consistent<br> timeline</a> of nighttime lights across the DMSP and VIIRS sensors possible. These data are accessible through a WB collaboration with the US National Oceanic and Atmospheric Administration (NOAA).</p></td>
+<td><p>Nighttime lights have proven to be useful predictors of numerous dimensions of human<br> activity: electrification, population, GDP, etc. Recent developments have made the <a class="reference external" href="https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&amp;amp;originalUrl=https%3A%2F%2Fregistry.opendata.aws.mcas.ms%2Fwb-light-every-night%2F%3FMcasTsid%3D15600&amp;amp;McasCSRF=a23286b96554bdf2bb45f530a7ef684e2eec1746893939d64046ccd9f3c587c2">entire nightly archive of nighttime lights</a> available in the public domain, and novel tools have made <a class="reference external" href="https://mcas-proxyweb.mcas.ms/certificate-checker?login=false&amp;amp;originalUrl=https%3A%2F%2Fgithub.com.mcas.ms%2Fworldbank%2FNTL_Harmonizer%3FMcasTsid%3D15600&amp;amp;McasCSRF=a23286b96554bdf2bb45f530a7ef684e2eec1746893939d64046ccd9f3c587c2">generating a consistent<br> timeline</a> of nighttime lights across the DMSP and VIIRS sensors possible. These data are accessible through a WB collaboration with the US National Oceanic and Atmospheric Administration (NOAA).</p></td>
 <td><p>Open</p></td>
 <td><p><a class="reference external" href="https://registry.opendata.aws/wb-light-every-night/">NightTime Lights Data.</a> For support in utilizing Nighttime Lights, contact the Geospatial Operations Support Team (GOST): <a class="reference external" href="mailto:gost&#37;&#52;&#48;worldbank&#46;org">gost<span>&#64;</span>worldbank<span>&#46;</span>org</a> or <a class="reference external" href="mailto:rmarty&#37;&#52;&#48;worldbank&#46;org">Rob Marty</a> (DIME).</p></td>
 </tr>
@@ -794,7 +802,7 @@ appropriate) for reuse, minimizing additional effort and duplication of acquisit
 <td><p>All movement datasets (#22-26) | All population data layers (#3-7) | UNHCR and UNOCHA migration data (#1,2) | and Open Street Map Points of Interest (#11)</p></td>
 </tr>
 <tr class="row-odd"><td><p>General Approach</p></td>
-<td><p>With the popularization of smartphone usage and connectivity across the world, the last decade has witnessed the emergence of massive mobility datasets, such call detail records, geo-tagged posts from social media platforms and generated from GPS devices. These datasets have propelled a <a class="reference external" href="https://www.semanticscholar.org/search?q=mobility%20data&amp;sort=relevance">rich scientific production</a> on various applications of mobility analysis, ranging from epidemiology to disaster resilience, urban planning and transportation engineering.<br>Through the <a class="reference external" href="https://datapartnership.org/">Development Data Partnership</a>,staff now have access to high-frequency location-based mobility data, constituted of high temporal and spatial resolution timestamped geographical points generated by GPS-enabled devices.<br> By overlaying population and socioeconomic data with mobility data, the project team will be able to produce an analysis based on the estimation of home locations and population displacement to be delivered on a weekly basis. The results could shed light on the earthquake’s effects on different areas and/or populations aggregated by seismic intensity, wealth group or additional features that become available.<br> In addition, a point of  interest rate visit analysis may show to what degree the decrease in movement and activity in business and commercial centers may correlate to the economic outlook, comparing to historical data.The project team may leverage both Meta and mobile device generated data, as well as official UN statsitics and other data sources as they become available to support cross-validation. <br>All analytics will be supported by at least two data sources, where possible – for example, combining Meta movement statistics with mobile-device location data and comparing with official UNHCR data.<br>See also: <a class="reference external" href="https://mobilkit.readthedocs.io/en/latest/examples/M4R_02_DisplacementAnalysis.html">Mobility for resilience: displacement analysis — mobilkit documentation</a> and <a class="reference external" href="https://datapartnership.org/syria-economic-monitor/notebooks/mobility/README.html">Observed Cross-Border Mobility Traces in Lebanon and Syria</a></p></td>
+<td><p>With the popularization of smartphone usage and connectivity across the world, the last decade has witnessed the emergence of massive mobility datasets, such call detail records, geo-tagged posts from social media platforms and generated from GPS devices. These datasets have propelled a <a class="reference external" href="https://www.semanticscholar.org/search?q=mobility%20data&amp;amp;sort=relevance">rich scientific production</a> on various applications of mobility analysis, ranging from epidemiology to disaster resilience, urban planning and transportation engineering.<br>Through the <a class="reference external" href="https://datapartnership.org/">Development Data Partnership</a>,staff now have access to high-frequency location-based mobility data, constituted of high temporal and spatial resolution timestamped geographical points generated by GPS-enabled devices.<br> By overlaying population and socioeconomic data with mobility data, the project team will be able to produce an analysis based on the estimation of home locations and population displacement to be delivered on a weekly basis. The results could shed light on the earthquake’s effects on different areas and/or populations aggregated by seismic intensity, wealth group or additional features that become available.<br> In addition, a point of  interest rate visit analysis may show to what degree the decrease in movement and activity in business and commercial centers may correlate to the economic outlook, comparing to historical data.The project team may leverage both Meta and mobile device generated data, as well as official UN statsitics and other data sources as they become available to support cross-validation. <br>All analytics will be supported by at least two data sources, where possible – for example, combining Meta movement statistics with mobile-device location data and comparing with official UNHCR data.<br>See also: <a class="reference external" href="https://mobilkit.readthedocs.io/en/latest/examples/M4R_02_DisplacementAnalysis.html">Mobility for resilience: displacement analysis — mobilkit documentation</a> and <a class="reference external" href="https://datapartnership.org/syria-economic-monitor/notebooks/mobility/README.html">Observed Cross-Border Mobility Traces in Lebanon and Syria</a></p></td>
 </tr>
 <tr class="row-even"><td><p>Outputs</p></td>
 <td><p><u><span>Data Pipeline and Pre-Processing</span></u>. The <em>Development Data Partnership</em> handles data delivery, data management and data engineering on behalf of all  staff and, in doing so, creates economies of scale. Transfer and storage costs are absorbed by the Lab. <br><u><span>Datasets</span></u>. All datasets used in the analysis will be documented and hosted on the World Bank Development Data Hub (for ease of sharing) and a project SharePoint (for the CMU’s ease of use). <br><u><span>Code and Documentation</span></u>. All methods will be fully documented and reproducible, so that the analysis can<br> be quickly updated by the CMU as new data are available.<br><u><span>Indicators</span></u>. Displacement by seismic intensity, home locality, wealth group. <br><u><span>Maps</span></u>.  Displacement by seismic intensity, home locality, wealth group. <br><u><span>Training and Support</span></u>. The Lab will provide the CMU with training so they may tweak the methodology and continue updating the insights on their own. The Lab would be available for technical assistance, as needed.</p></td>
