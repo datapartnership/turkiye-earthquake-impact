@@ -43,5 +43,3 @@ gs_df <- gs_df %>%
 
 saveRDS(gs_df, file.path(gas_flare_dir, "FinalData", "gas_flare_locations.Rds"))
 write_csv(gs_df, file.path(gas_flare_dir, "FinalData", "gas_flare_locations.csv"))
-
-

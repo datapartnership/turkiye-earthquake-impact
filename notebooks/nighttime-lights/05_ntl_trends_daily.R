@@ -12,14 +12,14 @@ df <- ntl_df %>%
 df <- df %>%
   arrange(date) %>%
   group_by(adm2_en) %>%
-  mutate(ntl_bm_mean_ma7 = rollmean(ntl_bm_mean, 
+  mutate(ntl_bm_mean_ma7 = rollmean(ntl_bm_mean,
                                     k = 7, align = "right", fill = NA)) %>%
   ungroup()
 
 # Individual ADMs --------------------------------------------------------------
 mi_u <- df$mmi_feb06_7p8 %>% floor() %>% unique() %>% sort()
 for(mi in mi_u){
-  
+
   p <- df %>%
     dplyr::filter(date >= ymd("2022-11-01"),
                   floor(mmi_feb06_7p8) == mi) %>%
@@ -36,9 +36,9 @@ for(mi in mi_u){
           strip.background = element_blank(),
           plot.title = element_text(face = "bold", hjust = 0.5)) +
     facet_wrap(~adm2_en,
-               scales = "free_y") 
-  
-  ggsave(p, filename = file.path(fig_dir, 
+               scales = "free_y")
+
+  ggsave(p, filename = file.path(fig_dir,
                                  paste0("ntl_trends_daily_adm2_mi", mi, ".png")),
          height = 13, width = 13)
 }
@@ -66,9 +66,9 @@ mi_df %>%
         strip.background = element_blank(),
         plot.title = element_text(face = "bold", hjust = 0.5)) +
   facet_wrap(~mi,
-             scales = "free_y") 
+             scales = "free_y")
 
-ggsave(filename = file.path(fig_dir, 
+ggsave(filename = file.path(fig_dir,
                                paste0("ntl_trends_daily_adm2_mi", "all_column", ".png")),
        height = 4, width = 6)
 
@@ -84,9 +84,8 @@ mi_df %>%
         strip.background = element_blank(),
         plot.title = element_text(face = "bold", hjust = 0.5)) +
   facet_wrap(~mi,
-             scales = "free_y") 
+             scales = "free_y")
 
-ggsave(filename = file.path(fig_dir, 
+ggsave(filename = file.path(fig_dir,
                                paste0("ntl_trends_daily_adm2_mi", "all_line", ".png")),
        height = 4, width = 6)
-
