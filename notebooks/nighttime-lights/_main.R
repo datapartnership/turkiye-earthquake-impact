@@ -5,8 +5,8 @@
 #### Root paths
 if(Sys.info()[["user"]] == "robmarty"){
   git_dir  <- "~/Documents/Github/turkiye-earthquake-impact"
-  
-  data_dir <- file.path("~", "Dropbox", "World Bank", "Side Work", 
+
+  data_dir <- file.path("~", "Dropbox", "World Bank", "Side Work",
                         "Turkiye Earthquake Impact", "Data")
 
 }
@@ -86,6 +86,3 @@ if(F){
   source(file.path(ntl_gir_dir, "05_ntl_trends_monthly.R"))
 
 }
-
-
-

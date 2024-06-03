@@ -150,5 +150,3 @@ for(roi in c("adm0", "adm1", "adm2")){
     }
   }
 }
-
-

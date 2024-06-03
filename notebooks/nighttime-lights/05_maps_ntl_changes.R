@@ -33,25 +33,25 @@ ntl_sum_df <- ntl_df %>%
   mutate(ntl_3day_pc = (ntl_3day - ntl_base)/ntl_base * 100,
          ntl_2week_pc = (ntl_2week - ntl_base)/ntl_base * 100,
          ntl_march_pc = (ntl_march - ntl_base)/ntl_base * 100) %>%
-  
+
   dplyr::mutate(ntl_3day_chng_bin = case_when(
     ntl_3day_pc >= 10 ~ "> 10% Increase",
     ntl_3day_pc <= -10 ~ "> 10% Decrease",
     TRUE ~ "Small change"
   )) %>%
-  
+
   dplyr::mutate(ntl_2week_chng_bin = case_when(
     ntl_2week_pc >= 10 ~ "> 10% Increase",
     ntl_2week_pc <= -10 ~ "> 10% Decrease",
     TRUE ~ "Small change"
   )) %>%
-  
+
   dplyr::mutate(ntl_march_chng_bin = case_when(
     ntl_march_pc >= 10 ~ "> 10% Increase",
     ntl_march_pc <= -10 ~ "> 10% Decrease",
     TRUE ~ "Small change"
   )) %>%
-  
+
 
   ## Merge in earthquake data and determine max intensity
   left_join(eq_df, by = "pcode") %>%
@@ -72,14 +72,14 @@ adm2_sf$ntl_3day_pc[adm2_sf$ntl_3day_pc > 50] <- 50
 # [Map] % Change ---------------------------------------------------------------
 
 for(var in c("ntl_2week", "ntl_march", "ntl_3day")){
-  
+
   adm2_sf$var_pc       <- adm2_sf[[paste0(var, "_pc")]]
   adm2_sf$var_chng_bin <- adm2_sf[[paste0(var, "_chng_bin")]]
-  
+
   if(var == "ntl_3day") subtitle <- "Change from 2 Weeks Before Earthquake to 3 Days After Earthquake"
   if(var == "ntl_2week") subtitle <- "Change from 2 Weeks Before Earthquake to 2 Weeks After Earthquake"
   if(var == "ntl_march") subtitle <- "Change from 2 Weeks Before Earthquake to March"
-  
+
   #### % Change
   p <- ggplot() +
     geom_sf(data = adm0_sf,
@@ -101,10 +101,10 @@ for(var in c("ntl_2week", "ntl_march", "ntl_3day")){
                          high = "forestgreen",
                          midpoint = 0,
                          limits = c(-50, 50))
-  
+
   ggsave(p, filename = file.path(fig_dir, paste0("ntl_adm2_map_",var,"_pc.png")),
          height = 6, width = 10)
-  
+
   ## Change Bin
   p <- ggplot() +
     geom_sf(data = adm0_sf,
@@ -122,10 +122,10 @@ for(var in c("ntl_2week", "ntl_march", "ntl_3day")){
          title = "Change in Nighttime Lights",
          subtitle = subtitle) +
     scale_fill_manual(values = c("dodgerblue", "darkorange", "gray"))
-  
+
   ggsave(p, filename = file.path(fig_dir, paste0("ntl_adm2_map_",var,"_chng_bin.png")),
          height = 6, width = 10)
-  
+
 }
 
 
@@ -161,4 +161,3 @@ p <- ntl_df %>%
 
 ggsave(p, filename = file.path(fig_dir, "ntl_adm2_inc_ex.png"),
        height = 2, width = 3.5)
-
