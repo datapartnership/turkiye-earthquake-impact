@@ -9,7 +9,7 @@ df <- ntl_df %>%
 
 mi_u <- df$mmi_feb06_7p8 %>% floor() %>% unique() %>% sort()
 for(mi in mi_u){
-  
+
   p <- df %>%
     dplyr::filter(date >= ymd("2022-01-01"),
                   floor(mmi_feb06_7p8) == mi) %>%
@@ -21,9 +21,9 @@ for(mi in mi_u){
          title = "Trends in Nighttime Lights Across ADM2",
          subtitle = paste0("MI: ", mi)) +
     facet_wrap(~adm2_en,
-               scales = "free_y") 
-  
-  ggsave(p, filename = file.path(fig_dir, 
+               scales = "free_y")
+
+  ggsave(p, filename = file.path(fig_dir,
                                  paste0("ntl_trends_monthly_adm2_mi", mi, ".png")),
          height = 13, width = 13)
 }
