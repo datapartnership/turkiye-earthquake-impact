@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
@@ -35,12 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -74,7 +74,7 @@
     <link rel="prev" title="Support for Türkiye Earthquake Impact Analysis" href="../README.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Apr 11, 2024"/>
+    <meta name="docbuild:last-update" content="Jun 04, 2024"/>
   </head>
   
   
@@ -82,27 +82,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -124,8 +120,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -191,25 +192,25 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Products</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/earthquake-intensity/earthquake_intensity.html">Earthquake Intensity Map of Turkiye</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/business-activity-trends/README.html">Business Activity Trends</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/business-activity-trends/README.html">Business Activity Trends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/business-activity-trends/01-business-activity-trends.html">Analysing business activity trends in Turkiye</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/internet-connectivity/README.html">Internet Connectivity Post Earthquake</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/internet-connectivity/README.html">Internet Connectivity Post Earthquake</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/internet-connectivity/03a-meta-internet-connectivity.html">Meta Mobile Network Connectivity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/internet-connectivity/03b-ookla-speedtest-analysis.html">Ookla’s Number of Speedtest Intelligence Users</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/mobility/README.html">Movement Trends</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/mobility/README.html">Movement Trends</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/mobility/activity.html">Estimating Activity Using Mobility Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/mobility/visits.html">Estimating Activity Through Point of Interest Visits Using Mobility Data</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/nighttime-lights/README.html">Nighttime Lights</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/surveys/README.html">Surveys</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../notebooks/surveys/README.html">Surveys</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/surveys/premise.html">Premise crowdsourced surveys</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Sample Indicators and Insights</span></p>
 <ul class="nav bd-sidenav">
@@ -233,7 +234,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -242,7 +243,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -500,7 +501,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 <p><em>This section includes a range of data collection and acquisition recommendations, such as open data resources, leveraging private data partnerships, current World Bank subscriptions and licenses, survey solutions, and remote sensing.</em></p>
 <section id="official-un-earthquake-and-refugee-impact-reporting">
 <h3>Official UN Earthquake and Refugee Impact Reporting<a class="headerlink" href="#official-un-earthquake-and-refugee-impact-reporting" title="Permalink to this heading">#</a></h3>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
 <th class="head"><p><strong>Dataset</strong></p></th>
@@ -524,10 +525,11 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="population-demographics-and-human-settlement-data">
 <h3>Population,Demographics, and Human Settlement Data<a class="headerlink" href="#population-demographics-and-human-settlement-data" title="Permalink to this heading">#</a></h3>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
 <th class="head"><p><strong>Dataset</strong></p></th>
@@ -575,10 +577,11 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="satellite-imagery-for-detecting-land-surface-changes">
 <h3>Satellite Imagery for Detecting Land Surface Changes<a class="headerlink" href="#satellite-imagery-for-detecting-land-surface-changes" title="Permalink to this heading">#</a></h3>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
 <th class="head"><p><strong>Dataset</strong></p></th>
@@ -602,10 +605,11 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity">
 <h3>Geospatial Infrastructure Data (Roads, Buildings, Power Grids, Internet Connectivity)<a class="headerlink" href="#geospatial-infrastructure-data-roads-buildings-power-grids-internet-connectivity" title="Permalink to this heading">#</a></h3>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
 <th class="head"><p><strong>Dataset</strong></p></th>
@@ -647,10 +651,11 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="data-for-understanding-critical-needs-and-access-to-services">
 <h3>Data for Understanding Critical Needs and Access to Services<a class="headerlink" href="#data-for-understanding-critical-needs-and-access-to-services" title="Permalink to this heading">#</a></h3>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
 <th class="head"><p><strong>Dataset</strong></p></th>
@@ -680,10 +685,11 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="data-for-measuring-economic-activity-direct-and-proxies">
 <h3>Data for Measuring Economic Activity (Direct and Proxies)<a class="headerlink" href="#data-for-measuring-economic-activity-direct-and-proxies" title="Permalink to this heading">#</a></h3>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
 <th class="head"><p><strong>Dataset</strong></p></th>
@@ -713,11 +719,12 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="data-for-monitoring-the-movement-of-people">
 <h3>Data for Monitoring the Movement of People<a class="headerlink" href="#data-for-monitoring-the-movement-of-people" title="Permalink to this heading">#</a></h3>
 <p>All the datasetswithin this category can be accessed by <a class="reference external" href="https://portal.datapartnership.org/submitproposal">submitting a proposal</a> to the <a class="reference external" href="https://portal.datapartnership.org/">Development Data Partnership</a>.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>ID</strong></p></th>
 <th class="head"><p><strong>Dataset</strong></p></th>
@@ -759,6 +766,7 @@ the earthquake’s aftermath is substantially impacting the people, infrastructu
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <hr class="docutils" />
@@ -791,7 +799,7 @@ appropriate) for reuse, minimizing additional effort and duplication of acquisit
 <section id="i-understanding-displacement-patterns">
 <h3>I.      Understanding Displacement Patterns<a class="headerlink" href="#i-understanding-displacement-patterns" title="Permalink to this heading">#</a></h3>
 <p>The Data Lab can undertake the following activities to better understand population movements (who, where, and when) resulting from the earthquake:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Topic</p></th>
 <th class="head"><p>Description</p></th>
@@ -815,6 +823,7 @@ appropriate) for reuse, minimizing additional effort and duplication of acquisit
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="ii-understanding-economic-impacts">
 <h3>II. Understanding Economic Impacts<a class="headerlink" href="#ii-understanding-economic-impacts" title="Permalink to this heading">#</a></h3>
@@ -823,7 +832,7 @@ supporting infrastructure indicators:</p>
 <section id="ii-a-observed-electricity-usage-at-night">
 <h4>II.A. Observed Electricity Usage at Night<a class="headerlink" href="#ii-a-observed-electricity-usage-at-night" title="Permalink to this heading">#</a></h4>
 <p>By comparing pre- and post-earthquake nighttime light data, we can identify changes in availability of electricity, mass movements of people, and changes in oil refining (through flaring). Some of our sample work using this methodology can be seen <a class="reference external" href="https://datapartnership.org/syria-economic-monitor/notebooks/ntl-analysis/README.html">as part of the Syria Economic Monitor.</a></p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Topic</p></th>
 <th class="head"><p>Description</p></th>
@@ -847,11 +856,12 @@ supporting infrastructure indicators:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="ii-b-internet-connectivity-availability-and-quality">
 <h4>II.B. Internet Connectivity Availability and Quality<a class="headerlink" href="#ii-b-internet-connectivity-availability-and-quality" title="Permalink to this heading">#</a></h4>
 <p>In Türkiye, the internet underpins modernbusiness and the government’s ability to communicate resources to those in need. Understanding changes in availability post-earthquake are an immediate proxy for damages to this critical infrastructure.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Topic</p></th>
 <th class="head"><p>Description</p></th>
@@ -875,11 +885,12 @@ supporting infrastructure indicators:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="ii-c-observed-business-facebook-page-activity">
 <h4>II.C. Observed Business Facebook Page Activity<a class="headerlink" href="#ii-c-observed-business-facebook-page-activity" title="Permalink to this heading">#</a></h4>
 <p>Many local businesses use Facebook as their primary business website. Facebook records levels of activity on these pages, aggregates activity by location and sector, and presents as generalized trend indicators for levels of business activity.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Topic</p></th>
 <th class="head"><p>Description</p></th>
@@ -903,11 +914,12 @@ supporting infrastructure indicators:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="ii-d-damaged-or-inaccessible-local-businesses">
 <h4>II.D. Damaged or Inaccessible Local Businesses<a class="headerlink" href="#ii-d-damaged-or-inaccessible-local-businesses" title="Permalink to this heading">#</a></h4>
 <p>By layering road and building footprint damages with points of interest, we can generate statistics on impacted businesses, banks, and other ancillary services critical to local functioning economies.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Topic</p></th>
 <th class="head"><p>Description</p></th>
@@ -931,11 +943,12 @@ supporting infrastructure indicators:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="ii-e-changes-in-financial-transaction-activity-by-sector">
 <h4>II.E. Changes in Financial Transaction Activity by Sector<a class="headerlink" href="#ii-e-changes-in-financial-transaction-activity-by-sector" title="Permalink to this heading">#</a></h4>
 <p>To understand better the timing of cessation and resumption of retail business activity, we can try to monitor changes in levels of transaction data (for credit card payments).</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Topic</p></th>
 <th class="head"><p>Description</p></th>
@@ -959,6 +972,7 @@ supporting infrastructure indicators:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="iii-understanding-social-impacts">
@@ -970,7 +984,7 @@ the Task Team (e.g., ““water,” “money transfer,” “pediatrician,” �
 “Covid”). The method can be adjusted to incorporate other datasets, such as
 social media data (e.g., Twitter which has roughly 16 million users in Türkiye).</p>
 <p>The Lab can also explore and analyze Premise survey data (available through the Development Data Partnership),which includes changes in availability of key services, accessibility of healthcare, needs of displaced persons, and price monitoring.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Topic</p></th>
 <th class="head"><p>Description</p></th>
@@ -994,6 +1008,7 @@ social media data (e.g., Twitter which has roughly 16 million users in Türkiye)
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="iv-dissemination-and-capacity-building">
 <h3>IV. Dissemination and Capacity Building<a class="headerlink" href="#iv-dissemination-and-capacity-building" title="Permalink to this heading">#</a></h3>
@@ -1058,7 +1073,7 @@ Bank and in partner international organizations. See more at <a class="reference
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1157,7 +1172,7 @@ By Development Data Group
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on Apr 11, 2024.
+  Last updated on Jun 04, 2024.
   <br/>
 </p>
   </div>
@@ -1184,8 +1199,8 @@ Country borders or names do not necessarily reflect the World Bank Group’s off
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
